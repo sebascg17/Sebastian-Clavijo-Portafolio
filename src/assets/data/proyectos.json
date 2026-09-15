@@ -533,5 +533,74 @@
     "solucion": "Foxy Platformer 2D integra en un solo proyecto modular todas las mecánicas esenciales de los clásicos juegos de plataformas, permitiendo a los aprendices comprender desde el cálculo de fuerzas hasta la arquitectura de software en Unity.",
     "enlaceCodigo": "https://github.com/sebascg17/Foxy-Platform",
     "destacado": true
+  },
+  {
+    "id": 13,
+    "categoria": "videojuego",
+    "titulo": "EnRuta - Endless Runner 3D",
+    "descripcion": "EnRuta es un dinámico Endless Runner 3D desarrollado en Unity 6 y C#, concebido como una propuesta arcade de concientización y educación ambiental ambientada en las calles y arquitectura emblemática de Medellín, Colombia.\n\nEn el rol de un recolector urbano, el jugador esquiva obstáculos viales y recolecta residuos a alta velocidad a lo largo de un sistema de carriles procedural. El juego integra mecánicas de salto, deslizamiento y power-ups magnéticos, culminando con una fase de clasificación de residuos según protocolos reales de reciclaje y sostenibilidad.",
+    "imagenes": [
+      "assets/juegos/EnRuta/Enruta.gif"
+    ],
+    "tecnologias": [
+      {
+        "nombre": "Unity 6",
+        "icono": "devicon-unity-original"
+      },
+      {
+        "nombre": "C#",
+        "icono": "devicon-csharp-plain"
+      },
+      {
+        "nombre": "ScriptableObjects",
+        "icono": "fas fa-database"
+      },
+      {
+        "nombre": "Procedural Track",
+        "icono": "fas fa-road"
+      },
+      {
+        "nombre": "Low-Poly 3D",
+        "icono": "fas fa-cube"
+      },
+      {
+        "nombre": "Git & GitHub",
+        "icono": "fab fa-github"
+      }
+    ],
+    "rol": "Co-Desarrollador de Gameplay, Mecánicas y Arquitectura",
+    "lugar": "Proyecto Colaborativo Independiente (En Desarrollo)",
+    "colaboradores": [
+      "William García",
+      "Juan Sebastián Clavijo"
+    ],
+    "arquitectura": [
+      "Generador Procedural de Pistas: Algoritmo dinámico (TrackGenerator + RoadModule) que instancia, concatena y recicla módulos de carretera con obstáculos en tiempo real, garantizando un consumo mínimo de memoria.",
+      "Controlador de Movimiento por Carriles: Sistema de desplazamiento horizontal en 3 vías con interpolación suave, detección de colisiones de precisión y mecánicas sincronizadas de salto y deslizamiento (SlideHandler).",
+      "Arquitectura Modular de Power-Ups (Strategy Pattern): Implementación de la interfaz IPowerUpEffect para desacoplar habilidades como el imán de residuos (MagnetPowerUp) y aceleradores de velocidad (SpeedPowerUp).",
+      "Gestión de Datos con ScriptableObjects: Parametrización modular de ítems coleccionables (CollectableData) y multiplicadores de efecto configurables desde el editor de Unity.",
+      "Arquitectura Guiada por Eventos (Observer Pattern): Desacoplamiento total entre GameManager, ScoreManager y UIManager mediante eventos C# para actualización reactiva del puntaje y estado de partida."
+    ],
+    "avances": [
+      "Desarrollo del núcleo jugable completo (Core Gameplay Loop): generación procedural continua, cambio de carriles responsivo y recolección fluida de objetos.",
+      "Sistema de power-up de imán funcional con detección esférica de proximidad (MagnetDetector) que atrae residuos automáticamente hacia el jugador.",
+      "Diseño de niveles y ambientación urbana inspirada en la ciudad de Medellín con estilo Low-Poly cartoon optimizado.",
+      "Integración de cámara en tercera persona con seguimiento cinemático amortiguado (damping) para evitar mareos a altas velocidades.",
+      "Control de versiones colaborativo y repositorio público activo en GitHub con commits coordinados entre desarrolladores."
+    ],
+    "retos": [
+      "Sincronizar el spawn procedural de obstáculos para garantizar que la generación aleatoria de módulos de pista siempre proporcione una ruta transitable y justa para el jugador.",
+      "Asegurar transiciones suaves entre carriles sin glitches de físicas en las esquinas de los obstáculos a velocidades crecientes.",
+      "Coordinar el desarrollo colaborativo en un proyecto compartido de Unity 6 evitando conflictos de merge en escenas y prefabs (usando Git LFS / .gitignore estructurado)."
+    ],
+    "logros": [
+      "Prototipo jugable avanzado con físicas calibradas y bucle de juego fluido capturado en demostración visual funcional.",
+      "Arquitectura de software altamente escalable basada en interfaces y ScriptableObjects, lista para incorporar nuevos niveles, vehículos o tipos de residuos.",
+      "Propuesta con gran potencial para convocatorias de innovación cultural, videojuegos serios e iniciativas ambientales locales (Ruta N, MinTIC)."
+    ],
+    "problema": "La educación ambiental y el reciclaje suelen transmitirse mediante charlas teóricas poco atractivas para el público joven, lo que limita la adopción real de hábitos de separación de residuos.",
+    "solucion": "EnRuta transforma la separación de basura en una mecánica de juego emocionante y competitiva: combina la adrenalina de un runner urbano 3D con el aprendizaje práctico de clasificación de residuos, educando a través del entretenimiento interactivo.",
+    "enlaceCodigo": "https://github.com/garciaw602/EnRuta-EndlessRunner/tree/main",
+    "destacado": true
   }
 ]

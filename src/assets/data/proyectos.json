@@ -540,16 +540,25 @@
     "titulo": "EnRuta - Endless Runner 3D",
     "descripcion": "EnRuta es un dinámico Endless Runner 3D desarrollado en Unity 6 y C#, concebido como una propuesta arcade de concientización y educación ambiental ambientada en las calles y arquitectura emblemática de Medellín, Colombia.\n\nEn el rol de un recolector urbano, el jugador esquiva obstáculos viales y recolecta residuos a alta velocidad a lo largo de un sistema de carriles procedural. El juego integra mecánicas de salto, deslizamiento y power-ups magnéticos, culminando con una fase de clasificación de residuos según protocolos reales de reciclaje y sostenibilidad.",
     "imagenes": [
-      "assets/juegos/EnRuta/Enruta.gif"
+      "assets/juegos/EnRuta/Enruta.gif",
+      "https://img.itch.zone/aW1nLzI0NTgzMTI1LmpwZw==/original/6ASxvV.jpg"
     ],
     "tecnologias": [
       {
-        "nombre": "Unity 6",
+        "nombre": "Unity URP",
         "icono": "devicon-unity-original"
       },
       {
         "nombre": "C#",
         "icono": "devicon-csharp-plain"
+      },
+      {
+        "nombre": "WebGL / HTML5",
+        "icono": "fas fa-globe"
+      },
+      {
+        "nombre": "Itch.io",
+        "icono": "fab fa-itch-io"
       },
       {
         "nombre": "ScriptableObjects",
@@ -560,16 +569,12 @@
         "icono": "fas fa-road"
       },
       {
-        "nombre": "Low-Poly 3D",
-        "icono": "fas fa-cube"
-      },
-      {
         "nombre": "Git & GitHub",
         "icono": "fab fa-github"
       }
     ],
     "rol": "Co-Desarrollador de Gameplay, Mecánicas y Arquitectura",
-    "lugar": "Proyecto Colaborativo Independiente (En Desarrollo)",
+    "lugar": "Proyecto Colaborativo Independiente (Jugable en Itch.io)",
     "colaboradores": [
       "William García",
       "Juan Sebastián Clavijo"
@@ -591,15 +596,17 @@
     "retos": [
       "Sincronizar el spawn procedural de obstáculos para garantizar que la generación aleatoria de módulos de pista siempre proporcione una ruta transitable y justa para el jugador.",
       "Asegurar transiciones suaves entre carriles sin glitches de físicas en las esquinas de los obstáculos a velocidades crecientes.",
-      "Coordinar el desarrollo colaborativo en un proyecto compartido de Unity 6 evitando conflictos de merge en escenas y prefabs (usando Git LFS / .gitignore estructurado)."
+      "Coordinar el desarrollo colaborativo en un proyecto compartido de Unity evitando conflictos de merge en escenas y prefabs (usando Git LFS / .gitignore estructurado)."
     ],
     "logros": [
+      "Videojuego publicado y 100% jugable en el navegador a través de Itch.io (https://wilsongarcia.itch.io/enruta).",
       "Prototipo jugable avanzado con físicas calibradas y bucle de juego fluido capturado en demostración visual funcional.",
       "Arquitectura de software altamente escalable basada en interfaces y ScriptableObjects, lista para incorporar nuevos niveles, vehículos o tipos de residuos.",
       "Propuesta con gran potencial para convocatorias de innovación cultural, videojuegos serios e iniciativas ambientales locales (Ruta N, MinTIC)."
     ],
     "problema": "La educación ambiental y el reciclaje suelen transmitirse mediante charlas teóricas poco atractivas para el público joven, lo que limita la adopción real de hábitos de separación de residuos.",
     "solucion": "EnRuta transforma la separación de basura en una mecánica de juego emocionante y competitiva: combina la adrenalina de un runner urbano 3D con el aprendizaje práctico de clasificación de residuos, educando a través del entretenimiento interactivo.",
+    "enlaceDescarga": "https://wilsongarcia.itch.io/enruta",
     "enlaceCodigo": "https://github.com/garciaw602/EnRuta-EndlessRunner/tree/main",
     "destacado": true
   }

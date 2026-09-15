@@ -312,32 +312,40 @@
     "id": 10,
     "categoria": "web",
     "titulo": "MercAbundy",
-    "descripcion": "Plataforma web para la gestión integral de inventarios y pedidos en mercados. Implementa dashboards multi-rol, contenedores Docker para estandarización, almacenamiento en Firebase y bases de datos PostgreSQL, desplegada en Render y Vercel.",
+    "descripcion": "MercAbundy es un ecosistema omnicanal de comercio electrónico y gestión integral de suministros, concebido para transformar y digitalizar las operaciones de minimercados, tiendas de barrio y comercios locales.\n\nLa plataforma integra una Progressive Web App (PWA) de alto rendimiento para clientes finales, una aplicación móvil nativa compilada para Android (APK) y una robusta API RESTful en la nube. A través de interfaces diseñadas para cada tipo de usuario, centraliza el ciclo completo de la venta: catálogo dinámico de productos, geolocalización de entregas, carrito de compras reactivo, control de inventario en tiempo real, gestión de despachos y auditoría de métricas comerciales.",
     "imagenes": [
-      "assets/web/MercAbundy/dashboard-personal.png",
       "assets/web/MercAbundy/menu-principal.png",
-      "assets/web/MercAbundy/petalle-producto.png",
-      "assets/web/MercAbundy/menu-de-opciones.png",
       "assets/web/MercAbundy/dashboard-administrativo.png",
       "assets/web/MercAbundy/dashboard-tendero.png",
+      "assets/web/MercAbundy/dashboard-personal.png",
       "assets/web/MercAbundy/vista-de-pedidos.png",
+      "assets/web/MercAbundy/petalle-producto.png",
+      "assets/web/MercAbundy/menu-de-opciones.png",
       "assets/web/MercAbundy/login.png"
     ],
     "tecnologias": [
       {
-        "nombre": "Angular",
+        "nombre": "Angular 19",
         "icono": "devicon-angularjs-plain"
       },
       {
-        "nombre": ".NET Core",
+        "nombre": ".NET 9 Web API",
         "icono": "devicon-dotnetcore-plain"
+      },
+      {
+        "nombre": "C#",
+        "icono": "devicon-csharp-plain"
+      },
+      {
+        "nombre": "TypeScript",
+        "icono": "devicon-typescript-plain"
       },
       {
         "nombre": "PostgreSQL",
         "icono": "devicon-postgresql-plain"
       },
       {
-        "nombre": "Firebase",
+        "nombre": "Firebase Storage",
         "icono": "devicon-firebase-plain"
       },
       {
@@ -347,9 +355,52 @@
       {
         "nombre": "Render",
         "icono": "fas fa-cloud-upload-alt"
+      },
+      {
+        "nombre": "Vercel",
+        "icono": "devicon-vercel-original"
+      },
+      {
+        "nombre": "Capacitor / Android",
+        "icono": "devicon-android-plain"
       }
     ],
+    "rol": "Desarrollador FullStack & Arquitecto de Software",
+    "lugar": "Proyecto Propio / Ecosistema en Producción",
+    "arquitectura": [
+      "Frontend Web & PWA: SPA reactiva desarrollada en Angular 19 con componentes Standalone, Signals para gestión reactiva de estado y enrutamiento modular optimizado para carga ultra-rápida en Vercel Edge Network.",
+      "App Móvil Android: Empaquetado y puente de hardware nativo utilizando Capacitor 7, generando instaladores APK firmados con servicio OTA de actualización automática en caliente (In-App UpdateService).",
+      "Backend RESTful API: Arquitectura desacoplada en capas construida en .NET 9 con C# (Controllers, Domain Services, Repositories, DTOs y Entity Framework Core), garantizando alta cohesión y bajo acoplamiento.",
+      "Contenedorización Docker: Empaquetado multi-stage del backend en contenedores Docker ligeros, desplegados como Web Service en la infraestructura cloud de Render con health checks automatizados.",
+      "Persistencia Relacional: Base de datos PostgreSQL alojada en la nube con connection pooling, consultas optimizadas mediante índices y protección contra saturación de transferencias de datos.",
+      "Almacenamiento Cloud: Integración con Firebase Storage para la carga, compresión y distribución CDN de imágenes de productos y catálogos en tiempo real.",
+      "Seguridad & RBAC: Autenticación stateless mediante JSON Web Tokens (JWT) y autorización granular Role-Based Access Control (Admin, Tendero, Personal, Cliente) con validación jerárquica de permisos.",
+      "DevOps & CI/CD: Pipeline de despliegue continuo estructurado con rama primordial 'deploy/render' para la API y despliegue automático desde 'main' hacia Vercel, orquestado mediante scripts de sincronización de versiones."
+    ],
+    "avances": [
+      "Panel de Administración General: Tablero analítico para supervisión de métricas de ventas, gestión de usuarios, auditoría de permisos administrativos y control global de comercios afiliados.",
+      "Panel del Tendero: Centro de operaciones comerciales con administración en vivo de catálogos, control de inventario con alertas de existencias, actualización de precios y recepción de pedidos.",
+      "Panel de Personal / Despacho: Módulo logístico enfocado en la preparación de paquetes, asignación de rutas, cambio de estados de pedidos y trazabilidad de entrega.",
+      "Experiencia del Cliente (Web & Móvil): Catálogo visual interactivo, georreferenciación de direcciones de entrega, carrito de compras reactivo y seguimiento detallado del pedido.",
+      "Distribución Nativa y APK: Pipeline automatizado (sync-version.js) que compila, versiona y distribuye el archivo APK descargable directamente desde la plataforma web y la API.",
+      "Optimización de Rendimiento Cloud: Rediseño del esquema de base de datos y migración a PostgreSQL administrado, alcanzando tiempos de respuesta estables de la API menores a 150 ms."
+    ],
+    "retos": [
+      "Diseñar una experiencia omnicanal donde un único repositorio y backend atiendan de forma simultánea a clientes web, usuarios móviles Android y paneles operativos especializados.",
+      "Sincronizar el inventario y los estados de pedidos en tiempo real entre el comprador, el tendero y el personal de despacho sin generar inconsistencias de concurrencia.",
+      "Implementar un estricto control de acceso basado en roles (RBAC) que filtre y proteja información confidencial entre comercios y niveles jerárquicos de administración.",
+      "Configurar un ciclo de vida CI/CD sin fricción que orqueste despliegues entre Vercel (Frontend) y Render con Docker (Backend) garantizando cero caídas de servicio."
+    ],
+    "logros": [
+      "Ecosistema 100% operativo en producción real, disponible públicamente en mercabundy.vercel.app y con usuarios activos en comercio local.",
+      "Desarrollo integral FullStack de extremo a extremo: arquitectura de base de datos, APIs RESTful, interfaces SPA/PWA, empaquetado móvil y despliegues cloud.",
+      "Reducción sustancial en los tiempos de toma de pedidos y control de existencias para los tenderos participantes.",
+      "Flujo de versionado sincronizado que permite liberar nuevas versiones y mejoras a producción en minutos de forma completamente automatizada."
+    ],
+    "problema": "Los minimercados y tenderos tradicionales carecen de herramientas digitales accesibles para competir contra grandes cadenas comerciales, dependiendo de registros en papel o chats desorganizados que derivan en errores de inventario, demoras en las entregas y pérdida de clientes.",
+    "solucion": "MercAbundy unifica a toda la comunidad comercial en una solución moderna y accesible: brinda a los clientes una tienda virtual ágil con entregas a domicilio, a los comerciantes un software integral de punto de venta e inventario, y al negocio una arquitectura tecnológica escalable y robusta.",
     "enlaceDemo": "https://mercabundy.vercel.app/",
+    "enlaceDescarga": "https://mercabundy.vercel.app/downloads/mercabundy.apk",
     "destacado": true
   },
   {

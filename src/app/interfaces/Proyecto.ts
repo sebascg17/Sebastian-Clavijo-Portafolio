@@ -2,7 +2,7 @@ export interface Proyecto {
   id: number;
   categoria: 'videojuego' | 'web';
   titulo: string;
-  descripcion: string[];
+  descripcion: string;
   tecnologias: {
     nombre: string;
     icono: string;
@@ -25,4 +25,6 @@ export interface Proyecto {
   logros?: string[];
   problema?: string;
   solucion?: string;
+  arquitectura?: string[];
+  avances?: string[];
 }

@@ -26,10 +26,25 @@
 
       <!-- Descripcion -->
       <div class="bloque" *ngIf="proyecto.descripcion">
-        <h3><i class="fas fa-pen"></i> Descripcion</h3>
+        <h3><i class="fas fa-pen"></i> Descripción</h3>
         <p>{{ proyecto.descripcion }}</p>
       </div>
 
+      <!-- Arquitectura -->
+      <div class="bloque" *ngIf="proyecto.arquitectura?.length">
+        <h3><i class="fas fa-sitemap"></i> Arquitectura del Sistema</h3>
+        <ul class="lista">
+          <li *ngFor="let item of proyecto.arquitectura">🏛️ {{ item }}</li>
+        </ul>
+      </div>
+
+      <!-- Avances y Módulos -->
+      <div class="bloque" *ngIf="proyecto.avances?.length">
+        <h3><i class="fas fa-chart-line"></i> Avances y Módulos Desarrollados</h3>
+        <ul class="lista">
+          <li *ngFor="let avance of proyecto.avances">🚀 {{ avance }}</li>
+        </ul>
+      </div>
 
       <!-- Rol y Lugar -->
       <div class="bloque" *ngIf="proyecto.rol || proyecto.lugar">
@@ -77,7 +92,10 @@
         <a (click)="volver()"><i class="fas fa-arrow-left"></i> Regresar</a>
         <a *ngIf="proyecto.enlaceCodigo" [href]="proyecto.enlaceCodigo" target="_blank"><i class="fab fa-github"></i> Código</a>
         <a *ngIf="proyecto.enlaceDemo" [href]="proyecto.enlaceDemo" target="_blank"><i class="fas fa-laptop-code"></i> Demo</a>
-        <a *ngIf="proyecto.enlaceDescarga" [href]="proyecto.enlaceDescarga" target="_blank"><i class="fas fa-play"></i> Jugar</a>
+        <a *ngIf="proyecto.enlaceDescarga" [href]="proyecto.enlaceDescarga" target="_blank">
+          <i [class]="proyecto.categoria === 'videojuego' ? 'fas fa-play' : 'fas fa-download'"></i>
+          {{ proyecto.categoria === 'videojuego' ? 'Jugar' : 'Descargar APK' }}
+        </a>
       </div>
 
     </div>

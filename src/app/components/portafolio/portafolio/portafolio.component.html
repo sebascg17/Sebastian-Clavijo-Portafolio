@@ -1,87 +1,188 @@
 <div class="portafolio-container">
 
-  <h1>Portafolio</h1>
-
-  
-  <div>
-    <p class="descripcion-portafolio">
-      Explora mis habilidades en programación, diseño y desarrollo de aplicaciones interactivas. ¡Espero que disfrutes navegando por mi portafolio!
+  <!-- CABECERA DE LA SECCIÓN -->
+  <div class="section-header">
+    <span class="section-pill">Portafolio</span>
+    <h2 class="section-title">Proyectos Destacados</h2>
+    <p class="section-subtitle">
+      Soluciones de software en producción, arquitecturas web escalables y desarrollo de videojuegos interactivos.
     </p>
   </div>
-  <!-- Introducción -->
-  <section class="projects">
-    <!-- Categorías -->
-    <div class="card" routerLink="/portafolio/videojuegos" tabindex="0">
-      <h3 class="centrado">🎮 Desarrollo de Videojuegos</h3>
-      <p class="texto-boton">
-        Títulos desarrollados en Unity que combinan programación, diseño visual y jugabilidad envolvente.
-      </p>
+
+  <!-- CASO DE ESTUDIO INSIGNIA: MERCABUNDY -->
+  <div class="flagship-card" *ngIf="mercabundyProyecto">
+    <div class="flagship-glow"></div>
+    <div class="flagship-header">
+      <div class="flagship-badge">
+        <span class="pulse-live"></span>
+        Ecosistema en Producción Real
+      </div>
+      <span class="flagship-category">Full Stack & Mobile</span>
     </div>
 
-    <div class="card" routerLink="/portafolio/desarrollo-web" tabindex="0">
-      <h3 class="centrado">💻 Desarrollo Web</h3>
-      <p class="texto-boton">
-        Aplicaciones modernas construidas con Angular, .NET y Node.js, enfocadas en rendimiento, escalabilidad y experiencia de usuario.
-      </p>
-    </div>
-  </section>
-  
-  <hr class="separador-neon">
-  <!-- Proyectos destacados -->
-  
-  <section class="projects">
-    <div *ngFor="let proyecto of destacados" class="card">
-      <div class="card-info">
-        <h3 class="centrado">{{ proyecto.titulo }}</h3>
-        <!-- Tecnologías -->
-        <div class="tecnologias">
-          <span *ngFor="let tech of proyecto.tecnologias" class="badge" style="display: inline-flex; align-items: center; gap: 6px;">
-            <i [class]="tech.icono" style="font-size: 1.2rem;"></i>
-            {{ tech.nombre }}
+    <div class="flagship-content-grid">
+      <div class="flagship-info">
+        <h3 class="flagship-title">{{ mercabundyProyecto.titulo }}</h3>
+        <p class="flagship-desc">
+          Plataforma omnicanal de comercio y gestión logística para minimercados y comercios locales. Centraliza catálogo dinámico, control de inventario en tiempo real, geolocalización de entregas y paneles administrativos por roles.
+        </p>
+
+        <div class="flagship-arch-highlights">
+          <div class="arch-item">
+            <i class="fas fa-layer-group"></i>
+            <span><strong>Frontend:</strong> Angular 19 SPA & PWA</span>
+          </div>
+          <div class="arch-item">
+            <i class="fas fa-server"></i>
+            <span><strong>Backend:</strong> .NET 9 Web API en C#</span>
+          </div>
+          <div class="arch-item">
+            <i class="fas fa-database"></i>
+            <span><strong>Data & Cloud:</strong> PostgreSQL + Docker + Render</span>
+          </div>
+          <div class="arch-item">
+            <i class="fab fa-android"></i>
+            <span><strong>Móvil:</strong> App Android compilada (Capacitor 7)</span>
+          </div>
+        </div>
+
+        <div class="tecnologias flagship-badges">
+          <span *ngFor="let tech of mercabundyProyecto.tecnologias" class="badge">
+            <i [class]="tech.icono"></i> {{ tech.nombre }}
           </span>
-        </div> 
+        </div>
 
-        <div class="carrusel">
-          <!-- Botón Izquierdo -->
-          <a class="slide-btn left"(click)="cambiarSlide(proyecto, -1)"*ngIf="proyecto.medios && proyecto.medios.length > 1">
+        <div class="flagship-actions">
+          <a *ngIf="mercabundyProyecto.enlaceDemo" [href]="mercabundyProyecto.enlaceDemo" target="_blank" rel="noopener" class="btn-primary">
+            <i class="fas fa-arrow-up-right-from-square"></i> Probar Demo Web
+          </a>
+          <a *ngIf="mercabundyProyecto.enlaceDescarga" [href]="mercabundyProyecto.enlaceDescarga" target="_blank" rel="noopener" class="btn-secondary">
+            <i class="fas fa-download"></i> Descargar APK
+          </a>
+          <a [routerLink]="['/portafolio/detalle', mercabundyProyecto.id]" class="btn-secondary">
+            <i class="fas fa-file-lines"></i> Ver Arquitectura Completa
+          </a>
+        </div>
+      </div>
+
+      <div class="flagship-preview" *ngIf="mercabundyProyecto.medios && mercabundyProyecto.medios.length > 0">
+        <div class="carrusel flagship-carrusel">
+          <a class="slide-btn left" (click)="cambiarSlide(mercabundyProyecto, -1)" *ngIf="mercabundyProyecto.medios.length > 1">
             <i class="fas fa-chevron-left"></i>
           </a>
-
-          <!-- Contenedor del medio -->
-          <div class="media-container">
-            <ng-container *ngIf="proyecto.medios && proyecto.medios.length > 0">
-              <ng-container *ngIf="esImagen(proyecto.medios[proyecto.currentSlide!])">
-                <img [src]="proyecto.medios[proyecto.currentSlide!]" alt="Media del proyecto" />
-              </ng-container>
-              <ng-container *ngIf="esVideo(proyecto.medios[proyecto.currentSlide!])">
-                <iframe
-                  [src]="proyecto.medios[proyecto.currentSlide!] | safeUrl"
-                  allowfullscreen
-                ></iframe>
-              </ng-container>
-            </ng-container>
+          <div class="media-container flagship-media">
+            <img [src]="mercabundyProyecto.medios[mercabundyProyecto.currentSlide || 0]" alt="Vista previa de MercAbundy" />
           </div>
-
-
-          <!-- Botón Derecho -->
-          <a
-            class="slide-btn right"
-            (click)="cambiarSlide(proyecto, 1)"
-            *ngIf="proyecto.medios && proyecto.medios.length > 1"
-          >
+          <a class="slide-btn right" (click)="cambiarSlide(mercabundyProyecto, 1)" *ngIf="mercabundyProyecto.medios.length > 1">
             <i class="fas fa-chevron-right"></i>
           </a>
         </div>
+        <span class="slide-indicator" *ngIf="mercabundyProyecto.medios.length > 1">
+          {{ (mercabundyProyecto.currentSlide || 0) + 1 }} / {{ mercabundyProyecto.medios.length }}
+        </span>
+      </div>
+    </div>
+  </div>
 
-      </div> 
+  <!-- FILTROS Y NAVEGACIÓN RÁPIDA -->
+  <div class="filter-controls">
+    <div class="filter-tabs">
+      <button class="filter-tab-btn" [class.active-filter]="filtroActivo === 'todos'" (click)="setFiltro('todos')">
+        <i class="fas fa-list-check"></i> Todos ({{ destacados.length }})
+      </button>
+      <button class="filter-tab-btn" [class.active-filter]="filtroActivo === 'web'" (click)="setFiltro('web')">
+        <i class="fas fa-code"></i> Software & Web
+      </button>
+      <button class="filter-tab-btn" [class.active-filter]="filtroActivo === 'videojuego'" (click)="setFiltro('videojuego')">
+        <i class="fas fa-gamepad"></i> Videojuegos (Unity)
+      </button>
+    </div>
+
+    <div class="category-shortcuts">
+      <a routerLink="/portafolio/desarrollo-web" class="category-shortcut-btn">
+        <i class="fas fa-laptop-code"></i> Ver sección Web & Software
+      </a>
+      <a routerLink="/portafolio/videojuegos" class="category-shortcut-btn gaming-btn">
+        <i class="fas fa-gamepad"></i> Zona Game Dev
+      </a>
+    </div>
+  </div>
+
+  <!-- GRILLA DE PROYECTOS -->
+  <section class="projects-grid">
+    <div *ngFor="let proyecto of proyectosVisibles" 
+         class="card-pro project-card"
+         [ngClass]="{'gaming-card': proyecto.categoria === 'videojuego'}">
       
-      <!-- Acciones -->
-      <div class="acciones">
-        <a [routerLink]="['/portafolio/detalle', proyecto.id]">
-          Ver más detalles
+      <!-- Top Card Header -->
+      <div class="project-card-top">
+        <span class="project-tag" [ngClass]="proyecto.categoria === 'videojuego' ? 'tag-game' : 'tag-web'">
+          <i [class]="proyecto.categoria === 'videojuego' ? 'fas fa-gamepad' : 'fas fa-code'"></i>
+          {{ proyecto.categoria === 'videojuego' ? 'Videojuego' : 'Software & Web' }}
+        </span>
+        <span *ngIf="proyecto.id === 10" class="badge-featured">Flagship</span>
+      </div>
+
+      <h3 class="project-title" [class.gaming-title]="proyecto.categoria === 'videojuego'">
+        {{ proyecto.titulo }}
+      </h3>
+
+      <!-- Carrusel de medios -->
+      <div class="carrusel">
+        <a class="slide-btn left" (click)="cambiarSlide(proyecto, -1)" *ngIf="proyecto.medios && proyecto.medios.length > 1">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+
+        <div class="media-container">
+          <ng-container *ngIf="proyecto.medios && proyecto.medios.length > 0">
+            <ng-container *ngIf="esImagen(proyecto.medios[proyecto.currentSlide || 0])">
+              <img [src]="proyecto.medios[proyecto.currentSlide || 0]" [alt]="'Captura de ' + proyecto.titulo" loading="lazy" />
+            </ng-container>
+            <ng-container *ngIf="esVideo(proyecto.medios[proyecto.currentSlide || 0])">
+              <iframe
+                [src]="proyecto.medios[proyecto.currentSlide || 0] | safeUrl"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <a class="slide-btn right" (click)="cambiarSlide(proyecto, 1)" *ngIf="proyecto.medios && proyecto.medios.length > 1">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+
+      <!-- Descripción corta -->
+      <p class="project-desc">
+        {{ proyecto.descripcion }}
+      </p>
+
+      <!-- Tecnologías -->
+      <div class="tecnologias project-techs">
+        <span *ngFor="let tech of proyecto.tecnologias" class="badge">
+          <i [class]="tech.icono"></i> {{ tech.nombre }}
+        </span>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="project-actions">
+        <a [routerLink]="['/portafolio/detalle', proyecto.id]" class="btn-card-detail">
+          <i class="fas fa-circle-info"></i> Ver Detalles
+        </a>
+        <a *ngIf="proyecto.enlaceDemo" [href]="proyecto.enlaceDemo" target="_blank" rel="noopener" class="btn-card-action">
+          <i class="fas fa-arrow-up-right-from-square"></i> Demo
+        </a>
+        <a *ngIf="proyecto.enlaceDescarga" [href]="proyecto.enlaceDescarga" target="_blank" rel="noopener" class="btn-card-action">
+          <i [class]="proyecto.categoria === 'videojuego' ? 'fas fa-play' : 'fas fa-download'"></i>
+          {{ proyecto.categoria === 'videojuego' ? 'Jugar' : 'APK' }}
+        </a>
+        <a *ngIf="proyecto.enlaceCodigo" [href]="proyecto.enlaceCodigo" target="_blank" rel="noopener" class="btn-card-action">
+          <i class="fab fa-github"></i> Código
         </a>
       </div>
 
     </div>
   </section>
+
 </div>

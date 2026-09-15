@@ -1,43 +1,55 @@
-<mat-toolbar class="menu-bar" color="primary">
+<mat-toolbar class="menu-bar">
   <button mat-icon-button 
           class="mobile-toggle" 
           [ngClass]="{ 'menu-open': sidenav.opened }"
           (click)="toggleSidenav()" 
-          aria-label="Abrir menú">
-    <mat-icon>menu</mat-icon>
+          aria-label="Abrir menú de navegación">
+    <mat-icon>{{ sidenav.opened ? 'close' : 'menu' }}</mat-icon>
   </button>
 
-  <a class="logo-img" mat-button routerLink="/">
-    <img [src]="logoUrl" alt="Logo" id="logo" width="300" style="margin-right: 10px;" />
+  <a class="logo-link" routerLink="/">
+    <img [src]="logoUrl" alt="Logo Sebastián Clavijo" id="logo" class="logo-img" />
   </a>
 
   <span class="spacer"></span>
 
-  <ng-container>
-    <div class="desktop-menu">
-      <a class="glow-text" mat-button [routerLink]="'/'" [ngClass]="{'active-link': isActive('/')}">Inicio</a>
+  <div class="desktop-menu">
+    <a class="nav-link" [routerLink]="'/'" [ngClass]="{'active-link': isActive('/')}">
+      Inicio
+    </a>
 
-      <a class="glow-text" mat-button [matMenuTriggerFor]="portfolioMenu" 
-         [routerLink]="'/portafolio'" 
-         [ngClass]="{'active-link': currentRoute.startsWith('/portafolio')}">
-        Portafolio
+    <a class="nav-link" [matMenuTriggerFor]="portfolioMenu" 
+       [routerLink]="'/portafolio'" 
+       [ngClass]="{'active-link': currentRoute.startsWith('/portafolio')}">
+      Portafolio <i class="fas fa-chevron-down nav-arrow"></i>
+    </a>
+    <mat-menu #portfolioMenu="matMenu" class="mat-menu-bg">
+      <a mat-menu-item routerLink="/portafolio/desarrollo-web" routerLinkActive="active-menu-item">
+        <i class="fas fa-code menu-icon"></i>
+        <span>Desarrollo de Software & Web</span>
       </a>
-      <mat-menu #portfolioMenu="matMenu" class="mat-menu-bg">
-        <a class="glow-text-sub" mat-menu-item routerLink="/portafolio/videojuegos" routerLinkActive="active-link">
-          Videojuegos
-        </a>
-        <a class="glow-text-sub" mat-menu-item routerLink="/portafolio/desarrollo-web" routerLinkActive="active-link">
-          Desarrollo Web
-        </a>
-      </mat-menu>
+      <a mat-menu-item routerLink="/portafolio/videojuegos" routerLinkActive="active-menu-item">
+        <i class="fas fa-gamepad menu-icon"></i>
+        <span>Videojuegos & Interactivos</span>
+      </a>
+    </mat-menu>
 
-      <a class="glow-text" mat-button [routerLink]="'/contacto'" [ngClass]="{'active-link': isActive('/contacto')}">Contacto</a>
-    </div>
-  </ng-container>
+    <a class="nav-link" [routerLink]="'/contacto'" [ngClass]="{'active-link': isActive('/contacto')}">
+      Contacto
+    </a>
 
-  <button class="btn-tema" (click)="cambiarTema()">
-    <i class="fas icono-tema" [ngClass]="esModoOscuro ? 'fa-sun' : 'fa-moon'"></i>
-  </button>
+    <!-- Acceso Rápido a CV para Reclutadores -->
+    <a href="assets/docs/CV Juan Sebastian Clavijo.pdf" target="_blank" download class="btn-nav-cv" title="Descargar Currículum Vitae">
+      <i class="fas fa-file-arrow-down"></i>
+      <span>CV</span>
+    </a>
+  </div>
+
+  <div class="theme-toggle-wrapper">
+    <button class="btn-tema" (click)="cambiarTema()" [attr.aria-label]="esModoOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'">
+      <i class="fas icono-tema" [ngClass]="esModoOscuro ? 'fa-sun' : 'fa-moon'"></i>
+    </button>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
@@ -49,29 +61,53 @@
     [disableClose]="false"    
     [(opened)]="isSidenavOpen"
   >
-    <!-- contenido del sidenav -->
-    <ul>
+    <div class="sidenav-header">
+      <img [src]="logoUrl" alt="Logo" class="sidenav-logo" />
+    </div>
+
+    <ul class="sidenav-list">
       <li>
-        <a class="glow-text" mat-button (click)="navigateAndClose('/')">Inicio</a>
+        <a class="sidenav-link" (click)="navigateAndClose('/')" [ngClass]="{'active-mobile-link': isActive('/')}">
+          <i class="fas fa-house"></i>
+          <span>Inicio</span>
+        </a>
       </li>
       <li>
-        <div class="menu-item">
-          <a class="glow-text" mat-button (click)="navigateAndClose('/portafolio')">Portafolio</a>
-          <a class="arrow-btn" mat-icon-button (click)="mostrarSubmenu = !mostrarSubmenu">
-            <mat-icon>{{ mostrarSubmenu ? 'expand_less' : 'play_arrow' }}</mat-icon>
+        <div class="mobile-portfolio-group">
+          <a class="sidenav-link" (click)="navigateAndClose('/portafolio')">
+            <i class="fas fa-layer-group"></i>
+            <span>Portafolio</span>
           </a>
+          <button class="arrow-btn" (click)="mostrarSubmenu = !mostrarSubmenu" aria-label="Desplegar submenú">
+            <mat-icon>{{ mostrarSubmenu ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </button>
         </div>
-        <ul *ngIf="mostrarSubmenu" class="submenu">
+        <ul *ngIf="mostrarSubmenu" class="submenu-list">
           <li>
-            <a class="glow-text" mat-button (click)="navigateAndClose('portafolio/videojuegos')">Videojuegos</a>
+            <a class="sidenav-sublink" (click)="navigateAndClose('/portafolio/desarrollo-web')">
+              <i class="fas fa-code"></i>
+              <span>Desarrollo Web & Software</span>
+            </a>
           </li>
           <li>
-            <a class="glow-text" mat-button (click)="navigateAndClose('portafolio/desarrollo-web')">Desarrollo Web</a>
+            <a class="sidenav-sublink gaming-sublink" (click)="navigateAndClose('/portafolio/videojuegos')">
+              <i class="fas fa-gamepad"></i>
+              <span>Videojuegos</span>
+            </a>
           </li>
         </ul>
       </li>
       <li>
-        <a class="glow-text" mat-button (click)="navigateAndClose('/contacto')">Contacto</a>
+        <a class="sidenav-link" (click)="navigateAndClose('/contacto')" [ngClass]="{'active-mobile-link': isActive('/contacto')}">
+          <i class="fas fa-envelope"></i>
+          <span>Contacto</span>
+        </a>
+      </li>
+      <li class="mobile-cv-item">
+        <a href="assets/docs/CV Juan Sebastian Clavijo.pdf" target="_blank" download class="btn-mobile-cv">
+          <i class="fas fa-file-arrow-down"></i>
+          <span>Descargar CV</span>
+        </a>
       </li>
     </ul>
   </mat-sidenav>

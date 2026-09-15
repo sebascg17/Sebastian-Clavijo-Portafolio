@@ -19,7 +19,9 @@ import { BaseProyectoComponent } from '../../shared/BaseProyectoComponent';
 export class PortafolioComponent extends BaseProyectoComponent implements OnInit {
   @Input() maxLength: number = 250;
   destacados: Proyecto[] = [];
+  mercabundyProyecto?: Proyecto;
   habilidades: Habilidad[] = [];
+  filtroActivo: 'todos' | 'web' | 'videojuego' = 'todos';
 
   constructor(private http: HttpClient) {
     super();
@@ -44,10 +46,24 @@ export class PortafolioComponent extends BaseProyectoComponent implements OnInit
             medios: videoUrl ? [videoUrl, ...p.imagenes] : [...p.imagenes]
           };
         });
+
+      this.mercabundyProyecto = this.destacados.find(p => p.id === 10 || p.titulo.toLowerCase().includes('mercabundy'));
     });
 
     this.http.get<Habilidad[]>('assets/data/habilidades.json').subscribe(data => {
       this.habilidades = data;
     });
   }
+
+  setFiltro(filtro: 'todos' | 'web' | 'videojuego') {
+    this.filtroActivo = filtro;
+  }
+
+  get proyectosVisibles(): Proyecto[] {
+    if (this.filtroActivo === 'todos') {
+      return this.destacados;
+    }
+    return this.destacados.filter(p => p.categoria === this.filtroActivo);
+  }
 }
+

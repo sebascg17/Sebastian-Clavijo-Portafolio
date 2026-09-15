@@ -1,44 +1,74 @@
-.skills {
-  text-align: center;
+.skills-section {
+  width: 100%;
 }
 
-.skills h2.hero {
-  font-size: 2rem;
-  color: var(--color-acento);
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--color-acento);
-  display: inline-block;
-  padding-bottom: 0.5rem;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-.skills-row {
+.skill-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  flex-direction: column;
+  transition: all 0.25s ease;
 }
 
-.skill-box {
-  background-color: var(--color-card);
-  padding: 2rem 1.5rem;
-  border-radius: 16px;
-  border: 1px solid var(--color-borde);
-  box-shadow: 0 0 12px rgba(3, 250, 110, 0.1);
-  flex: 1 1 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  color: var(--color-text);
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-borde);
 }
 
-.skill-box:hover {
-  transform: scale(1.02) translateY(-6px);
-  box-shadow: 0 0 15px var(--color-acento);
-  cursor: default;
-}
-
-.skill-box h4 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.4rem;
+.skill-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-acento-subtle);
   color: var(--color-acento);
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.gaming-icon-wrap {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--color-acento);
+}
+
+.skill-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.15rem;
+}
+
+.gaming-skill-card .skill-title {
+  font-family: var(--font-heading);
+}
+
+.skill-subtitle {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+.skill-badges {
+  justify-content: flex-start;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.gaming-skill-card {
+  border-color: var(--color-borde);
+}
+
+.gaming-skill-card:hover {
+  border-color: var(--color-acento);
+  box-shadow: 0 4px 15px var(--color-acento-glow);
 }

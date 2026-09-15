@@ -1,22 +1,47 @@
-<div class="proyecto-detalle" *ngIf="proyecto">
+<div class="proyecto-detalle-container" *ngIf="proyecto">
   
-      <h1 class="titulo-proyecto">{{ proyecto.titulo }}</h1>
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <div class="detalle-top-nav">
+    <button (click)="volver()" class="btn-detail-back" aria-label="Volver">
+      <i class="fas fa-arrow-left"></i> Volver
+    </button>
+
+    <div class="detalle-tags">
+      <span class="project-tag" [ngClass]="proyecto.categoria === 'videojuego' ? 'tag-game' : 'tag-web'">
+        <i [class]="proyecto.categoria === 'videojuego' ? 'fas fa-gamepad' : 'fas fa-code'"></i>
+        {{ proyecto.categoria === 'videojuego' ? 'Videojuego' : 'Desarrollo de Software & Web' }}
+      </span>
+      <span *ngIf="proyecto.id === 10" class="badge-featured">Proyecto en Producción</span>
+    </div>
+  </div>
+
+  <h1 class="titulo-proyecto" [class.gaming-title]="proyecto.categoria === 'videojuego'">
+    {{ proyecto.titulo }}
+  </h1>
+
   <div class="detalle-layout">
     
-    <!-- Galería de imágenes -->
-    <div class="galeria-imagenes" *ngIf="proyecto.medios?.length">
-      <ng-container *ngFor="let media of proyecto.medios">
-        <img *ngIf="esImagen(media)" [src]="media" alt="Imagen del proyecto" />
-        <iframe *ngIf="esVideo(media)" [src]="media | safeUrl" frameborder="0" allowfullscreen></iframe>
-      </ng-container>
+    <!-- GALERÍA DE MEDIOS -->
+    <div class="galeria-columna">
+      <div class="galeria-sticky">
+        <h3 class="galeria-titulo"><i class="fas fa-photo-film"></i> Galería de Capturas & Video</h3>
+        <div class="galeria-imagenes" *ngIf="proyecto.medios?.length">
+          <div *ngFor="let media of proyecto.medios" class="media-card">
+            <img *ngIf="esImagen(media)" [src]="media" [alt]="'Captura de ' + proyecto.titulo" loading="lazy" />
+            <div *ngIf="esVideo(media)" class="video-embed-wrapper">
+              <iframe [src]="media | safeUrl" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Contenido -->
-    <div class="contenido-proyecto">
+    <!-- CONTENIDO TÉCNICO Y ARQUITECTURA -->
+    <div class="contenido-columna">
             
       <!-- Tecnologías -->
-      <div class="bloque" *ngIf="proyecto.tecnologias?.length">
-        <h3><i class="fas fa-tools"></i> Tecnologías</h3>
+      <div class="bloque card-pro" *ngIf="proyecto.tecnologias?.length">
+        <h3 class="bloque-titulo"><i class="fas fa-layer-group"></i> Stack Tecnológico</h3>
         <div class="badge-grid">
           <span *ngFor="let tech of proyecto.tecnologias" class="badge">
             <i [class]="tech.icono"></i> {{ tech.nombre }}
@@ -24,77 +49,108 @@
         </div>
       </div>
 
-      <!-- Descripcion -->
-      <div class="bloque" *ngIf="proyecto.descripcion">
-        <h3><i class="fas fa-pen"></i> Descripción</h3>
-        <p>{{ proyecto.descripcion }}</p>
+      <!-- Descripción General -->
+      <div class="bloque card-pro" *ngIf="proyecto.descripcion">
+        <h3 class="bloque-titulo"><i class="fas fa-align-left"></i> Descripción del Proyecto</h3>
+        <p class="bloque-texto">{{ proyecto.descripcion }}</p>
       </div>
 
-      <!-- Arquitectura -->
-      <div class="bloque" *ngIf="proyecto.arquitectura?.length">
-        <h3><i class="fas fa-sitemap"></i> Arquitectura del Sistema</h3>
-        <ul class="lista">
-          <li *ngFor="let item of proyecto.arquitectura">🏛️ {{ item }}</li>
+      <!-- Arquitectura Técnica (MercAbundy / Enterprise) -->
+      <div class="bloque card-pro highlight-bloque" *ngIf="proyecto.arquitectura?.length">
+        <h3 class="bloque-titulo"><i class="fas fa-sitemap"></i> Arquitectura del Sistema</h3>
+        <ul class="lista-arquitectura">
+          <li *ngFor="let item of proyecto.arquitectura" class="item-arquitectura">
+            <i class="fas fa-microchip arch-icon"></i>
+            <span>{{ item }}</span>
+          </li>
         </ul>
       </div>
 
-      <!-- Avances y Módulos -->
-      <div class="bloque" *ngIf="proyecto.avances?.length">
-        <h3><i class="fas fa-chart-line"></i> Avances y Módulos Desarrollados</h3>
-        <ul class="lista">
-          <li *ngFor="let avance of proyecto.avances">🚀 {{ avance }}</li>
+      <!-- Avances y Módulos Desarrollados -->
+      <div class="bloque card-pro" *ngIf="proyecto.avances?.length">
+        <h3 class="bloque-titulo"><i class="fas fa-chart-line"></i> Avances & Módulos Desarrollados</h3>
+        <ul class="lista-avances">
+          <li *ngFor="let avance of proyecto.avances" class="item-avance">
+            <i class="fas fa-check-circle check-icon"></i>
+            <span>{{ avance }}</span>
+          </li>
         </ul>
       </div>
 
       <!-- Rol y Lugar -->
-      <div class="bloque" *ngIf="proyecto.rol || proyecto.lugar">
-        <p *ngIf="proyecto.rol"><strong><i class="fas fa-user-tie"></i> Rol:</strong> {{ proyecto.rol }}</p>
-        <p *ngIf="proyecto.lugar"><strong><i class="fas fa-map-marker-alt"></i> Lugar:</strong> {{ proyecto.lugar }}</p>
+      <div class="bloque card-pro meta-bloque" *ngIf="proyecto.rol || proyecto.lugar">
+        <div *ngIf="proyecto.rol" class="meta-item">
+          <i class="fas fa-user-tie"></i>
+          <div>
+            <span class="meta-label">Rol Desempeñado</span>
+            <span class="meta-val">{{ proyecto.rol }}</span>
+          </div>
+        </div>
+        <div *ngIf="proyecto.lugar" class="meta-item">
+          <i class="fas fa-building"></i>
+          <div>
+            <span class="meta-label">Entorno / Organización</span>
+            <span class="meta-val">{{ proyecto.lugar }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retos y Logros -->
+      <div class="bloque card-pro" *ngIf="proyecto.retos?.length">
+        <h3 class="bloque-titulo"><i class="fas fa-bolt"></i> Retos Técnicos</h3>
+        <ul class="lista-retos">
+          <li *ngFor="let reto of proyecto.retos" class="item-bullet">
+            <i class="fas fa-triangle-exclamation warn-icon"></i>
+            <span>{{ reto }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bloque card-pro" *ngIf="proyecto.logros?.length">
+        <h3 class="bloque-titulo"><i class="fas fa-trophy"></i> Logros Clave</h3>
+        <ul class="lista-logros">
+          <li *ngFor="let logro of proyecto.logros" class="item-bullet">
+            <i class="fas fa-star star-icon"></i>
+            <span>{{ logro }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Problema y Solución -->
+      <div class="bloque card-pro" *ngIf="proyecto.problema">
+        <h3 class="bloque-titulo"><i class="fas fa-bug"></i> Problema a Resolver</h3>
+        <p class="bloque-texto">{{ proyecto.problema }}</p>
+      </div>
+
+      <div class="bloque card-pro" *ngIf="proyecto.solucion">
+        <h3 class="bloque-titulo"><i class="fas fa-circle-check"></i> Solución Implementada</h3>
+        <p class="bloque-texto">{{ proyecto.solucion }}</p>
       </div>
 
       <!-- Colaboradores -->
-      <div class="bloque" *ngIf="proyecto.colaboradores?.length">
-        <h3><i class="fas fa-users"></i> Colaboradores</h3>
-        <ul class="lista">
-          <li *ngFor="let persona of proyecto.colaboradores" class="badge">👤 {{ persona }}</li>
-        </ul>
+      <div class="bloque card-pro" *ngIf="proyecto.colaboradores?.length">
+        <h3 class="bloque-titulo"><i class="fas fa-users"></i> Equipo & Colaboradores</h3>
+        <div class="badge-grid">
+          <span *ngFor="let persona of proyecto.colaboradores" class="badge">
+            <i class="fas fa-user"></i> {{ persona }}
+          </span>
+        </div>
       </div>
 
-      <!-- Retos -->
-      <div class="bloque" *ngIf="proyecto.retos?.length">
-        <h3><i class="fas fa-exclamation-triangle"></i> Retos</h3>
-        <ul class="lista">
-          <li *ngFor="let reto of proyecto.retos">⚔️ {{ reto }}</li>
-        </ul>
-      </div>
-
-      <!-- Logros -->
-      <div class="bloque" *ngIf="proyecto.logros?.length">
-        <h3><i class="fas fa-trophy"></i> Logros</h3>
-        <ul class="lista">
-          <li *ngFor="let logro of proyecto.logros">🏆 {{ logro }}</li>
-        </ul>
-      </div>
-
-      <!-- Problema y solución -->
-      <div class="bloque" *ngIf="proyecto.problema">
-        <h3><i class="fas fa-bug"></i> Problema</h3>
-        <p>{{ proyecto.problema }}</p>
-      </div>
-
-      <div class="bloque" *ngIf="proyecto.solucion">
-        <h3><i class="fas fa-check-circle"></i> Solución</h3>
-        <p>{{ proyecto.solucion }}</p>
-      </div>
-
-      <!-- Acciones -->
-      <div class="acciones">
-        <a (click)="volver()"><i class="fas fa-arrow-left"></i> Regresar</a>
-        <a *ngIf="proyecto.enlaceCodigo" [href]="proyecto.enlaceCodigo" target="_blank"><i class="fab fa-github"></i> Código</a>
-        <a *ngIf="proyecto.enlaceDemo" [href]="proyecto.enlaceDemo" target="_blank"><i class="fas fa-laptop-code"></i> Demo</a>
-        <a *ngIf="proyecto.enlaceDescarga" [href]="proyecto.enlaceDescarga" target="_blank">
+      <!-- BOTONES DE ACCIÓN FLOTANTES / BOTTOM -->
+      <div class="acciones-detalle">
+        <button (click)="volver()" class="btn-secondary">
+          <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+        <a *ngIf="proyecto.enlaceDemo" [href]="proyecto.enlaceDemo" target="_blank" rel="noopener" class="btn-primary">
+          <i class="fas fa-arrow-up-right-from-square"></i> Probar Demo Web
+        </a>
+        <a *ngIf="proyecto.enlaceDescarga" [href]="proyecto.enlaceDescarga" target="_blank" rel="noopener" class="btn-primary">
           <i [class]="proyecto.categoria === 'videojuego' ? 'fas fa-play' : 'fas fa-download'"></i>
-          {{ proyecto.categoria === 'videojuego' ? 'Jugar' : 'Descargar APK' }}
+          {{ proyecto.categoria === 'videojuego' ? 'Jugar / Probar' : 'Descargar APK' }}
+        </a>
+        <a *ngIf="proyecto.enlaceCodigo" [href]="proyecto.enlaceCodigo" target="_blank" rel="noopener" class="btn-secondary">
+          <i class="fab fa-github"></i> Ver Repositorio
         </a>
       </div>
 

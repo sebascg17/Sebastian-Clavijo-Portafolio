@@ -7,78 +7,253 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2000;
-  background-color: var(--color-card);  /* Usamos el color de fondo adaptable */
-  color: var(--color-acento);           /* Color acento */
-  border-bottom: 1px solid var(--color-acento);
-  font-weight: bold;
+  height: 70px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-borde);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
-.menu-item {
+body.modo-oscuro .menu-bar {
+  background-color: rgba(9, 13, 22, 0.85);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.03);
+}
+
+/* MENÚ DE ESCRITORIO */
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-heading);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--color-acento);
+  background-color: var(--color-acento-subtle);
+}
+
+.active-link {
+  color: var(--color-acento) !important;
+  background-color: var(--color-acento-subtle);
+  font-weight: 700;
+}
+
+.nav-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover .nav-arrow {
+  transform: translateY(1px);
+}
+
+/* BOTÓN DE CV EN NAVBAR */
+.btn-nav-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  background: var(--color-acento-subtle);
+  color: var(--color-acento);
+  border: 1px solid var(--color-acento);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.btn-nav-cv:hover {
+  background: var(--color-acento);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px var(--color-acento-glow);
+}
+
+/* SUBMENÚ MATERIAL */
+.menu-icon {
+  margin-right: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--color-acento);
+}
+
+.active-menu-item {
+  color: var(--color-acento) !important;
+  font-weight: 700 !important;
+}
+
+.theme-toggle-wrapper {
+  margin-left: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+/* SIDENAV MÓVIL */
+.mobile-toggle {
+  display: none;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+}
+
+.custom-sidenav {
+  width: 290px;
+  background-color: var(--color-surface) !important;
+  color: var(--color-text);
+  border-right: 1px solid var(--color-borde);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+}
+
+.sidenav-header {
+  padding: 1rem 0.5rem 1.5rem;
+  border-bottom: 1px solid var(--color-borde);
+  margin-bottom: 1rem;
+}
+
+.sidenav-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.sidenav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidenav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidenav-link:hover, .active-mobile-link {
+  color: var(--color-acento);
+  background-color: var(--color-acento-subtle);
+}
+
+.mobile-portfolio-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .arrow-btn {
-  background: none;
+  background: transparent;
   border: none;
-  color: var(--color-acento);
+  color: var(--color-text-muted);
   cursor: pointer;
-  margin-top: -6px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
 }
 
-.submenu {
-  padding-left: 1.5rem;
-}
-
-.desktop-menu {
-  font-family: 'Orbitron', sans-serif;
-}
-
-.custom-sidenav {
-  padding-top: 64px;
-  background-color: var(--color-bg) !important;
-  color: var(--color-text);  
-  width: 250px;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 1000;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.custom-sidenav::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1px;
-  height: 100%;
-  background-color: var(--color-acento);
-}
-
-.sidenav-container {
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.sidenav ul {
-  list-style: none;
-  padding: 0;
-  margin: 2rem;
-  width: 150px;
-}
-
-.sidenav ul li {
-  margin: 15px 0;
-}
-
-.sidenav ul li a {
-  display: block;
-  text-align: left;
+.arrow-btn:hover {
   color: var(--color-acento);
+}
+
+.submenu-list {
+  list-style: none;
+  padding: 0.25rem 0 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidenav-sublink {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
   text-decoration: none;
-  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidenav-sublink:hover {
+  color: var(--color-acento);
+  background-color: var(--color-acento-subtle);
+}
+
+.gaming-sublink:hover {
+  font-family: var(--font-gaming);
+  letter-spacing: 0.03em;
+}
+
+.mobile-cv-item {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.btn-mobile-cv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--color-acento);
+  color: #ffffff;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .sidenav-backdrop {
@@ -86,101 +261,26 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* oscurece ligeramente */
-  z-index: 999; /* menos que el sidenav */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 999;
 }
 
-
-/* Botón de menú solo visible en móvil */
-.mobile-toggle {
-  display: none;
-}
-
-/* Quita la flechita por defecto */
-details summary {
-  color: var(--color-acento);
-  cursor: pointer;
-  transition: text-shadow 0.3s ease, color 0.3s ease;
-}
-
-details summary:hover {
-  text-shadow: 0 0 5px var(--color-acento);
-  color: var(--color-acento);
-}
-
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-details summary,
-.sidenav ul li a {
-  display: block;
-  padding: 10px 0;
-  font-weight: bold;
-}
-
-/* Submenú */
-details ul {
-  padding-left: 1rem;
-  margin-top: 5px;
-}
-
-details[open] summary::after {
-  content: "▼";
-  float: right;
-  font-size: 0.8rem;
-  margin-left: 8px;
-}
-
-details:not([open]) summary::after {
-  content: "▶";
-  float: right;
-  font-size: 0.8rem;
-  margin-left: 8px;
-}
-
-.active-link {
-  font-weight: bold;
-  text-shadow: 0 0 3px var(--color-acento);
-}
-
-.active-sub-link {
-  font-weight: bold;
-  color: var(--color-acento) !important;
-  text-shadow: 0 0 2px var(--color-acento);
-}
-
-@media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 860px) {
   .desktop-menu {
     display: none;
   }
 
-  .mobile-toggle.activo {
-    background-color: var(--color-acento);
-    color: var(--color-card-dark);
-  }
-
   .mobile-toggle {
-    display: block;
-    margin-left: auto;
-    background-color: var(--color-card);
-    color: var(--color-acento);
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
   }
 
-  .mobile-toggle:hover {
-    background-color: var(--color-acento);
-    color: var(--color-card-dark);
-    box-shadow: 0 0 8px var(--color-acento);
-  }
-
-  .logo-img {
-    margin: 0 auto;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .menu-bar {
+    padding: 0 1rem;
   }
 }

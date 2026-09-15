@@ -1,6 +1,7 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { HabilidadesComponent } from "../habilidades/habilidades.component";
 
 interface Perfil {
@@ -38,6 +39,8 @@ interface Perfil {
   contacto: {
     github: string;
     linkedin: string;
+    unity?: string;
+    itchio?: string;
     correo: string;
     cv: string;
   };
@@ -46,7 +49,8 @@ interface Perfil {
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, HabilidadesComponent],
+  standalone: true,
+  imports: [CommonModule, RouterModule, HabilidadesComponent],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })

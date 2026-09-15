@@ -1,46 +1,82 @@
-<!-- Habilidades en badges -->
-<section class="skills">    
-  <h2 class="hero">Habilidades Principales</h2>
-  <div class="skills-row" *ngIf="habilidades">
-    <!-- VIDEOJUEGOS -->
-    <div class="skill-box">
-      <h4>Desarrollo de videojuegos</h4>
-      <div class="tecnologias">
-        <span class="badge" *ngFor="let tech of habilidades.videojuegos">
-          <i *ngIf="tech.icono" [class]="tech.icono"></i> {{ tech.nombre }}
-        </span>
+<section class="skills-section">    
+  <div class="section-header">
+    <span class="section-pill">Stack Tecnológico</span>
+    <h2 class="section-title">Habilidades & Especialidades</h2>
+    <p class="section-subtitle">Tecnologías y herramientas con las que construyo soluciones escalables</p>
+  </div>
+
+  <div class="skills-grid" *ngIf="habilidades">
+    <!-- BACKEND & CLOUD -->
+    <div class="skill-card card-pro">
+      <div class="skill-card-header">
+        <div class="skill-icon-wrap">
+          <i class="fas fa-server"></i>
+        </div>
+        <div>
+          <h3 class="skill-title">Back-End & APIs</h3>
+          <span class="skill-subtitle">Arquitectura robusta y escalable</span>
+        </div>
       </div>
-    </div>
-    
-    <!-- BACKEND -->
-    <div class="skill-box">
-      <h4>Back-End</h4>
-      <div class="tecnologias">
+      <div class="tecnologias skill-badges">
         <span class="badge" *ngFor="let tech of habilidades.backend">
           <i *ngIf="tech.icono" [class]="tech.icono"></i> {{ tech.nombre }}
         </span>
       </div>
     </div>
 
-    <!-- FRONTEND -->
-    <div class="skill-box">
-      <h4>Front-End</h4>
-      <div class="tecnologias">
+    <!-- FRONTEND & SPA -->
+    <div class="skill-card card-pro">
+      <div class="skill-card-header">
+        <div class="skill-icon-wrap">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <div>
+          <h3 class="skill-title">Front-End Moderno</h3>
+          <span class="skill-subtitle">SPAs interactivas y reactivas</span>
+        </div>
+      </div>
+      <div class="tecnologias skill-badges">
         <span class="badge" *ngFor="let tech of habilidades.frontend">
           <i *ngIf="tech.icono" [class]="tech.icono"></i> {{ tech.nombre }}
         </span>
       </div>
     </div>
 
-    <!-- OTROS -->
-    <div class="skill-box">
-      <h4>Conocimientos en...</h4>
-      <div class="tecnologias">
+    <!-- VIDEOJUEGOS -->
+    <div class="skill-card card-pro gaming-skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon-wrap gaming-icon-wrap">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div>
+          <h3 class="skill-title">Desarrollo de Videojuegos</h3>
+          <span class="skill-subtitle">Mecánicas 2D/3D y Unity Engine</span>
+        </div>
+      </div>
+      <div class="tecnologias skill-badges">
+        <span class="badge" *ngFor="let tech of habilidades.videojuegos">
+          <i *ngIf="tech.icono" [class]="tech.icono"></i> {{ tech.nombre }}
+        </span>
+      </div>
+    </div>
+
+    <!-- DEVOPS, DB Y HERRAMIENTAS -->
+    <div class="skill-card card-pro">
+      <div class="skill-card-header">
+        <div class="skill-icon-wrap">
+          <i class="fas fa-cubes"></i>
+        </div>
+        <div>
+          <h3 class="skill-title">DevOps & Ecosistema</h3>
+          <span class="skill-subtitle">Contenedores, cloud y metodologías</span>
+        </div>
+      </div>
+      <div class="tecnologias skill-badges">
         <span class="badge" *ngFor="let tech of habilidades.otros">
           <i *ngIf="tech.icono" [class]="tech.icono"></i> {{ tech.nombre }}
         </span>
       </div>
     </div>
   </div>
-</section> 
+</section>
 

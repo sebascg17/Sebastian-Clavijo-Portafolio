@@ -406,23 +406,132 @@
   {
     "id": 11,
     "categoria": "videojuego",
-    "titulo": "Survival Shooter Multiplayer",
-    "descripcion": "Juego de supervivencia multijugador desarrollado en Unity como recurso educativo. Implementa mecánicas de combate sincronizadas, gestión de sesiones multijugador y una interfaz intuitiva para una experiencia competitiva fluida.",
+    "titulo": "Survival Shooter 3D Multiplayer",
+    "descripcion": "Survival Shooter 3D Multiplayer es un intenso juego de supervivencia y disparos en tercera persona en 3D desarrollado en Unity y C#, concebido como un entorno de demostración técnica y de aprendizaje avanzado para estudiantes de desarrollo de videojuegos en Kodland.\n\nEl jugador debe sobrevivir en una arena dinámica contra oleadas de enemigos con inteligencia artificial, sincronización de estados multijugador y un sistema balístico preciso. La arquitectura del juego prioriza un rendimiento fluido a 60 FPS en navegadores mediante WebGL, aplicando optimizaciones clave de memoria, físicas desacopladas y reutilización de recursos con patrones de diseño orientados a videojuegos.",
     "imagenes": [
       "https://img.itch.zone/aW1nLzI2OTk3MzI4LnBuZw==/original/Hwcg3B.png"
     ],
     "tecnologias": [
       {
-        "nombre": "Unity",
+        "nombre": "Unity 3D",
         "icono": "devicon-unity-original"
       },
       {
         "nombre": "C#",
         "icono": "devicon-csharp-plain"
+      },
+      {
+        "nombre": "NavMesh / AI",
+        "icono": "fas fa-robot"
+      },
+      {
+        "nombre": "WebGL",
+        "icono": "fas fa-globe"
+      },
+      {
+        "nombre": "Git & GitHub",
+        "icono": "fab fa-github"
+      },
+      {
+        "nombre": "Itch.io",
+        "icono": "fab fa-itch-io"
       }
     ],
+    "rol": "Desarrollador de Videojuegos 3D & Mentor Técnico",
+    "lugar": "Kodland / Proyecto Educativo y Competitivo",
+    "arquitectura": [
+      "Controlador de Personaje e Input 3D: Sistema de movimiento y apuntado omnidireccional con físicas suaves (Rigidbody, Character Controller y Raycast) desacoplado del bucle de renderizado.",
+      "Inteligencia Artificial con NavMesh: Agentes enemigos autónomos controlados por Unity NavMeshAgent con máquina de estados finitos (patrulla, persecución en jauría y ataque cuerpo a cuerpo).",
+      "Patrón Object Pooling: Gestión eficiente de proyectiles, partículas de impacto y spawner de enemigos, mitigando la recolección de basura (Garbage Collection) y caídas de FPS.",
+      "Sistema de Combate y Daño: Mecánica balística modular con cálculo de daño por impacto, retroceso, efectos de partículas (MuzzleFlash) y audio posicional 3D.",
+      "Pipeline de Compilación WebGL: Optimización de texturas, compresión de shaders y empaquetado para ejecución directa en cualquier navegador moderno sin descargas previas."
+    ],
+    "avances": [
+      "Implementación de spawner dinámico con dificultad progresiva basada en tiempo y oleadas superadas.",
+      "HUD interactivo con barras de salud en tiempo real, conteo de bajas, munición restante y pantalla de Game Over sincronizada.",
+      "Integración de cámara cinemática isométrica con amortiguación suave (damping) que sigue al jugador en todo momento.",
+      "Publicación y despliegue exitoso en Itch.io con soporte WebGL responsivo en pantalla completa."
+    ],
+    "retos": [
+      "Mantener estabilidad de 60 cuadros por segundo en WebGL mientras decenas de agentes con IA y partículas interactúan en la escena.",
+      "Diseñar un código modular, limpio y bien comentado que sirviera tanto para jugar como de guía pedagógica para alumnos de Kodland.",
+      "Asegurar que la detección de colisiones balísticas fuera precisa sin sobrecargar el motor de físicas PhysX de Unity."
+    ],
+    "logros": [
+      "Videojuego 100% jugable en navegador en Itch.io (https://sebascg17.itch.io/survival-shooter-multiplayer) con partidas estables y retroalimentación positiva.",
+      "Arquitectura basada en eventos en C# que permite añadir nuevos tipos de enemigos y armas sin modificar el núcleo del juego.",
+      "Proyecto consolidado como material didáctico insignia para la enseñanza de físicas 3D, IA y arquitectura en Unity."
+    ],
+    "problema": "La enseñanza de desarrollo de videojuegos 3D requiere proyectos que vayan más allá de simples tutoriales, integrando física, inteligencia artificial, arquitectura de código y optimización web en un producto final atractivo.",
+    "solucion": "Survival Shooter 3D materializa todas las buenas prácticas de la industria en un videojuego completo y rejugable, sirviendo como estándar de arquitectura limpia y alto rendimiento en Unity.",
     "enlaceDescarga": "https://sebascg17.itch.io/survival-shooter-multiplayer",
     "enlaceCodigo": "https://github.com/sebascg17/Survival-Shooter#",
+    "destacado": true
+  },
+  {
+    "id": 12,
+    "categoria": "videojuego",
+    "titulo": "Foxy Platformer 2D",
+    "descripcion": "Foxy Platformer 2D es un dinámico juego de plataformas de acción y aventuras desarrollado en Unity 2D y C#, creado como proyecto integral de desarrollo y pedagogía técnica en Kodland.\n\nEl jugador controla al ágil personaje Foxy a través de niveles vibrantes con físicas clásicas de plataformas: saltos precisos, doble salto condicional, plataformas móviles en suspensión, acertijos de puertas con llaves (Door Quest), recolección de gemas/cerezas e interacción con NPCs. La arquitectura implementa un sistema desacoplado de máquinas de estado para el jugador, efectos parallax multicapa para los fondos y una gestión de juego optimizada para ordenadores y navegadores WebGL.",
+    "imagenes": [
+      "assets/juegos/FoxyPlatform/foxy-background.png",
+      "assets/juegos/FoxyPlatform/foxy-middle.png"
+    ],
+    "tecnologias": [
+      {
+        "nombre": "Unity 2D",
+        "icono": "devicon-unity-original"
+      },
+      {
+        "nombre": "C#",
+        "icono": "devicon-csharp-plain"
+      },
+      {
+        "nombre": "2D Physics / Rigidbody",
+        "icono": "fas fa-shapes"
+      },
+      {
+        "nombre": "Pixel Art / Sprites",
+        "icono": "fas fa-palette"
+      },
+      {
+        "nombre": "Git & GitHub",
+        "icono": "fab fa-github"
+      },
+      {
+        "nombre": "WebGL",
+        "icono": "fas fa-globe"
+      }
+    ],
+    "rol": "Desarrollador de Videojuegos 2D & Mentor Técnico",
+    "lugar": "Kodland / Proyecto Educativo",
+    "arquitectura": [
+      "Máquina de Estados del Jugador (FSM): Controlador desacoplado que gestiona transiciones limpias entre estados (Idle, Correr, Salto, Doble Salto, Caída y Recibir Daño).",
+      "Sistema de Fondo Parallax Multicapa: Script modular que sincroniza la velocidad de desplazamiento de múltiples capas de escenario 2D según la posición de la cámara ortográfica.",
+      "Mecánicas de Plataformas Móviles e Interactivos: Lógica de arrastre de físicas con parenting dinámico y detección de triggers para plataformas flotantes y puertas de nivel.",
+      "Gestor Global de Partida (GameManager): Arquitectura centralizada de vidas, puntos por gemas, reaparición en checkpoints y control de pantallas de Victoria / Derrota.",
+      "Lógica de Diálogos e Interacción NPC: Sistema de eventos desacoplado para activar paneles de diálogo al interactuar con personajes no jugables."
+    ],
+    "avances": [
+      "Implementación fluida de doble salto dinámico desbloqueable mediante power-ups en el nivel.",
+      "Diseño de niveles con acertijo de búsqueda de llaves y apertura de puertas para avanzar de escenario.",
+      "Plataformas móviles con oscilación suave y detección de aterrizaje sin deslizamientos involuntarios.",
+      "Animaciones sprite-sheet coordinadas por Animator con blend trees y triggers en tiempo real.",
+      "Estructuración de código limpio y modular orientado a la enseñanza de buenas prácticas a estudiantes de Kodland."
+    ],
+    "retos": [
+      "Lograr un control de salto y físicas 2D que se sienta responsivo, justo y sin problemas de colisión en esquinas de plataformas (Tilemap edge catching).",
+      "Sincronizar el efecto parallax en distintas resoluciones de pantalla manteniendo la inmersión visual de profundidad.",
+      "Desarrollar una estructura de código lo suficientemente intuitiva para ser explicada y extendida paso a paso por estudiantes de programación."
+    ],
+    "logros": [
+      "Videojuego de plataformas completo y pulido, con código fuente publicado y versionado en GitHub.",
+      "Plataforma didáctica utilizada con éxito para enseñar conceptos de físicas 2D, matemáticas de vectores, colisiones y patrones de diseño en C#.",
+      "Mecánicas de salto, coleccionables y movimiento reconocidas por su fluidez y precisión en sesiones de juego."
+    ],
+    "problema": "Enseñar programación de videojuegos en 2D requiere un proyecto práctico que no se limite a mover un objeto, sino que enseñe la interacción real de físicas, animaciones coordinadas, arquitectura de scripts y diseño de niveles entretenido.",
+    "solucion": "Foxy Platformer 2D integra en un solo proyecto modular todas las mecánicas esenciales de los clásicos juegos de plataformas, permitiendo a los aprendices comprender desde el cálculo de fuerzas hasta la arquitectura de software en Unity.",
+    "enlaceCodigo": "https://github.com/sebascg17/Foxy-Platform",
     "destacado": true
   }
 ]

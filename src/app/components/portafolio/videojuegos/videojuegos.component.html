@@ -1,55 +1,85 @@
-<div class="portafolio-container">
-  <h1 class="titulo-seccion"> Proyectos de Desarrollo de Videojuegos </h1>
-  <section class="projects">
-    <div *ngFor="let juego of juegos" class="card">
-      <h2>{{ juego.titulo }}</h2>      
+<div class="portafolio-container gaming-theme">
+  
+  <!-- CABECERA GAMING ZONE -->
+  <div class="gaming-header-box">
+    <div class="gaming-top-bar">
+      <a routerLink="/portafolio" class="btn-gaming-back">
+        <i class="fas fa-arrow-left"></i> Volver al Portafolio
+      </a>
+      <span class="gaming-zone-pill">
+        <i class="fas fa-gamepad"></i> Unity & C# Arcade Lab
+      </span>
+    </div>
+
+    <h1 class="gaming-main-title">Desarrollo de Videojuegos</h1>
+    <p class="gaming-subtitle">
+      Títulos 2D y 3D desarrollados en Unity y C#, prototipos para Game Jams, mecánicas de gameplay y multijugador local.
+    </p>
+  </div>
+
+  <!-- GRILLA DE VIDEOJUEGOS -->
+  <section class="projects-grid">
+    <div *ngFor="let juego of juegos" class="gaming-card card-pro">
+      
+      <div class="project-card-top">
+        <span class="gaming-badge">
+          <i class="fas fa-gamepad"></i> Juego Unity
+        </span>
+        <span *ngIf="juego.destacado" class="badge-featured">Destacado</span>
+      </div>
+
+      <h2 class="gaming-title">{{ juego.titulo }}</h2>      
+      
       <div class="card-info">
-        <div class="tecnologias">
-          <span *ngFor="let tech of juego.tecnologias" class="badge" style="display: inline-flex; align-items: center; gap: 6px;">
-            <i [class]="tech.icono" style="font-size: 1.2rem;"></i>
-            {{ tech.nombre }}
-          </span>
-        </div>
-        
+        <!-- Carrusel -->
         <div class="carrusel">
-          <!-- Botón Izquierdo -->
-          <a class="slide-btn left"(click)="cambiarSlide(juego, -1)"*ngIf="juego.medios && juego.medios.length > 1">
+          <a class="slide-btn left" (click)="cambiarSlide(juego, -1)" *ngIf="juego.medios && juego.medios.length > 1">
             <i class="fas fa-chevron-left"></i>
           </a>
 
-          <!-- Contenedor del medio -->
           <div class="media-container">
             <ng-container *ngIf="juego.medios && juego.medios.length > 0">
-              <ng-container *ngIf="esImagen(juego.medios[juego.currentSlide!])">
-                <img [src]="juego.medios[juego.currentSlide!]" alt="Media del juego" />
+              <ng-container *ngIf="esImagen(juego.medios[juego.currentSlide || 0])">
+                <img [src]="juego.medios[juego.currentSlide || 0]" [alt]="'Captura de ' + juego.titulo" loading="lazy" />
               </ng-container>
 
-              <ng-container *ngIf="esVideo(juego.medios[juego.currentSlide!])">
+              <ng-container *ngIf="esVideo(juego.medios[juego.currentSlide || 0])">
                 <iframe
                   width="100%"
-                  height="315"
-                  [src]="juego.medios[juego.currentSlide!] | safeUrl"
-                  frameborder="0"
+                  height="100%"
+                  [src]="juego.medios[juego.currentSlide || 0] | safeUrl"
                   allowfullscreen
+                  loading="lazy"
                 ></iframe>
               </ng-container>
             </ng-container>
           </div>
 
-          <!-- Botón Derecho -->
-          <a
-            class="slide-btn right"
-            (click)="cambiarSlide(juego, 1)"
-            *ngIf="juego.medios && juego.medios.length > 1"
-          >
+          <a class="slide-btn right" (click)="cambiarSlide(juego, 1)" *ngIf="juego.medios && juego.medios.length > 1">
             <i class="fas fa-chevron-right"></i>
           </a>
-        </div>       
+        </div>
+
+        <p class="project-desc">{{ juego.descripcion }}</p>
+
+        <!-- Tecnologías -->
+        <div class="tecnologias project-techs">
+          <span *ngFor="let tech of juego.tecnologias" class="badge">
+            <i [class]="tech.icono"></i> {{ tech.nombre }}
+          </span>
+        </div>
       </div> 
 
-      <div class="acciones">    
-        <a [routerLink]="['/portafolio/detalle', juego.id]">
-          Ver más detalles
+      <!-- Acciones Gaming -->
+      <div class="project-actions">    
+        <a [routerLink]="['/portafolio/detalle', juego.id]" class="btn-card-detail">
+          <i class="fas fa-circle-info"></i> Detalles & Retos
+        </a>
+        <a *ngIf="juego.enlaceDescarga" [href]="juego.enlaceDescarga" target="_blank" rel="noopener" class="btn-gaming-play">
+          <i class="fas fa-play"></i> Jugar / Probar
+        </a>
+        <a *ngIf="juego.enlaceCodigo" [href]="juego.enlaceCodigo" target="_blank" rel="noopener" class="btn-card-action">
+          <i class="fab fa-github"></i> Código
         </a>
       </div>
     </div>

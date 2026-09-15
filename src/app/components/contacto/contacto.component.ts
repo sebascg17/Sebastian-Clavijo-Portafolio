@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 interface Contacto {
   contacto: {
@@ -15,11 +16,11 @@ interface Contacto {
 @Component({
   standalone: true,
   selector: 'app-contacto',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit {
   contacto!: Contacto;
 
   constructor(private http: HttpClient) {}

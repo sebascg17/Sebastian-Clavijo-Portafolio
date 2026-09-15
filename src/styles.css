@@ -1,188 +1,372 @@
-/* RESET BÁSICO */
+/* RESET Y CONFIGURACIÓN BÁSICA */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* VARIABLES */
-:root {  
-  --color-icono-tema: #00b36b;          /* ícono negro en modo claro */
-  --color-icono-tema-hover: #ffffff; /* hover blanco en modo claro */
+/* VARIABLES DE DISEÑO PROFESIONAL */
+:root {
+  /* Fuentes */
+  --font-heading: 'Plus Jakarta Sans', 'Montserrat', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --font-gaming: 'Orbitron', sans-serif;
 
-  --color-bg: #f0f0f0;
-  --color-text: #111;
-  --color-hover-text: #ffffff; 
+  /* Modo Claro (Limpio, Corporativo, Alto Contraste) */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
   --color-card: #ffffff;
+  --color-card-hover: #f1f5f9;
+  --color-card-dark: #f1f5f9;
 
-  --color-acento: #00b36b; /* Verde más oscuro y legible en fondo claro */
-  --color-acento-hover: #00e395;
-  
-  --color-borde: #00b36b55;
-  --color-badge-bg: #00b36b11;
-  --color-card-dark: #eeeeee; /* nuevo */
+  --color-text: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-hover-text: #ffffff;
+
+  --color-acento: #059669; /* Verde esmeralda tech profesional */
+  --color-acento-hover: #047857;
+  --color-acento-subtle: rgba(5, 150, 105, 0.08);
+  --color-acento-glow: rgba(5, 150, 105, 0.2);
+
+  --color-borde: #e2e8f0;
+  --color-borde-hover: #cbd5e1;
+  --color-badge-bg: #f1f5f9;
+  --color-badge-border: #e2e8f0;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 15px rgba(5, 150, 105, 0.15);
+
+  --color-icono-tema: #059669;
+  --color-icono-tema-hover: #047857;
 }
 
 body.modo-oscuro {
-  --color-icono-tema: #03fa6e;       /* ícono claro en modo oscuro */
-  --color-icono-tema-hover: #000000; /* hover negro en modo oscuro */
+  /* Modo Oscuro (Tech, Slate Profundo, Estilo Vercel/Linear) */
+  --color-bg: #090d16;
+  --color-surface: #0f172a;
+  --color-card: #111a2e;
+  --color-card-hover: #16223b;
+  --color-card-dark: #0b1120;
 
-  --color-bg: #111;
-  --color-text: #eaeaea;
-  --color-hover-text: #111111;
-  --color-card: #272727;
+  --color-text: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-hover-text: #090d16;
 
-  --color-acento: #03fa6e; /* Mantén el verde neón en oscuro si te gusta */
-  --color-acento-hover: #00ffae;
+  --color-acento: #10b981; /* Esmeralda vivo, legible y moderno */
+  --color-acento-hover: #34d399;
+  --color-acento-subtle: rgba(16, 185, 129, 0.12);
+  --color-acento-glow: rgba(16, 185, 129, 0.25);
 
-  --color-borde: #03fa6e55;
-  --color-badge-bg: #03fa6e11;
-  --color-card-dark: #2f2f2f; /* nuevo */
+  --color-borde: rgba(255, 255, 255, 0.08);
+  --color-borde-hover: rgba(16, 185, 129, 0.35);
+  --color-badge-bg: rgba(255, 255, 255, 0.04);
+  --color-badge-border: rgba(255, 255, 255, 0.09);
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.2);
+
+  --color-icono-tema: #10b981;
+  --color-icono-tema-hover: #34d399;
 }
-
 
 /* ESTILOS BASE */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* TIPOGRAFÍA GENERAL (LIMPIA Y PROFESIONAL) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.85rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* BOTÓN DE TEMA */
 .btn-tema {
-  background: transparent;
-  border: none;
+  background: var(--color-badge-bg);
+  border: 1px solid var(--color-borde);
+  border-radius: 50%;
   cursor: pointer;
-  padding: 0.6rem;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.btn-tema:hover {
+  background: var(--color-acento-subtle);
+  border-color: var(--color-acento);
+  transform: scale(1.05);
 }
 
 .icono-tema {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: var(--color-icono-tema);
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .btn-tema:hover .icono-tema {
+  transform: rotate(15deg);
   color: var(--color-icono-tema-hover);
 }
 
-
-/* CONTENEDOR GENERAL */
+/* CONTENEDOR PRINCIPAL */
 .app-container {
   max-width: 1200px;
-  margin: 20px auto;
-  margin-top: 80px;
-  padding: 0 15px;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3.5rem;
 }
 
-/* TÍTULOS */
-h1, h2, h3, h4 {
-  color: var(--color-acento);
-  margin-top: 0;
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
+.content {
+  min-height: calc(100vh - 160px);
 }
 
-/* BOTONES */
-button, .mat-button {
-  background-color: var(--color-card);
-  color: var(--color-acento);
-  border: 2px solid var(--color-acento);
-  border-radius: 8px;
-  padding: 10px 20px;
+/* BOTONES PROFESIONALES */
+.btn-primary, button.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-acento);
+  color: #ffffff;
+  font-family: var(--font-heading);
   font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s ease;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
-button:hover, .mat-button:hover {
-  background-color: var(--color-acento);
-  color: var(--color-dark);
-  box-shadow: 0 0 12px var(--color-acento);
+.btn-primary:hover, button.btn-primary:hover {
+  background: var(--color-acento-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-acento-glow);
 }
 
-/* EFECTOS BRILLANTES */
-.glow-text {
+.btn-secondary, button.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-card);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-borde);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover, button.btn-secondary:hover {
+  background: var(--color-badge-bg);
+  border-color: var(--color-borde-hover);
+  transform: translateY(-2px);
   color: var(--color-acento);
-  font-weight: bold;
 }
 
-.glow-text:hover, .glow-text:focus {
-  color: var(--color-acento );
-  text-shadow: 0 0 1px var(--color-acento), 
-    0 0 1px var(--color-acento),
-    0 0 1px var(--color-acento), 
-    0 0 2px var(--color-acento);  
-  transform: scale(1) translateY(-2px);
-}
-.glow-text-sub{
-  color: var(--color-acento);
-}
-
-.glow-text-sub:hover {
-  color: var(--color-acento);
-  text-shadow: 0 0 1px var(--color-acento), 
-    0 0 1px var(--color-acento),
-    0 0 1px var(--color-acento), 
-    0 0 1px var(--color-acento);
-}
-/* MENÚ MATERIAL */
-.mat-mdc-menu-content {
-  background: var(--color-card) !important;
-  color: var(--color-acento) !important; 
-}
-.mat-mdc-menu-item {
-  color: var(--color-acento) !important;
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s; 
-  font-family: 'Orbitron', sans-serif;
-}
-
-/* SEPARADOR */
-.separador-neon {
-  border: none;
-  height: 2px;
-  background-color: var(--color-acento);
-  margin: 30px 0;
-  box-shadow: 0 0 10px var(--color-acento);
-}
-
-/* BADGES */
+/* BADGES MODERNOS (TECH PILLS) */
 .tecnologias {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
 }
 
 .badge {
   background-color: var(--color-badge-bg);
-  border: 1px solid var(--color-borde);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  color: var(--color-acento);
-  display: flex;
+  border: 1px solid var(--color-badge-border);
+  color: var(--color-text-secondary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  display: inline-flex;
   align-items: center;
-  font-size: 0.95rem;
-  gap: 8px;
-  transition: background-color 0.3s;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.badge i {
+  font-size: 1rem;
+  color: var(--color-acento);
 }
 
 .badge:hover {
-  background: var(--color-acento);
-  color: var(--color-hover-text);
-  box-shadow: 0 0 8px var(--color-acento), 0 0 12px var(--color-acento);
-  cursor: default;
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+  background-color: var(--color-acento-subtle);
+  transform: translateY(-1px);
 }
 
+/* SEPARADORES ELEGANTES */
+.separador-neon, .separador-moderno {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-borde), transparent);
+  margin: 3.5rem 0;
+  opacity: 0.8;
+}
+
+/* EFECTOS DE TEXTO Y COMPATIBILIDAD */
+.glow-text {
+  color: var(--color-text);
+  transition: color 0.2s ease;
+}
+
+.glow-text:hover {
+  color: var(--color-acento);
+}
+
+.glow-text-sub {
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.glow-text-sub:hover {
+  color: var(--color-acento);
+}
+
+/* MENÚ MATERIAL MODERNO */
+.mat-mdc-menu-content {
+  background: var(--color-card) !important;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 6px !important;
+}
+
+.mat-mdc-menu-item {
+  color: var(--color-text) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mat-mdc-menu-item:hover {
+  background-color: var(--color-acento-subtle) !important;
+  color: var(--color-acento) !important;
+}
+
+/* ==========================================================================
+   ESTILOS ENCAPSULADOS PARA LA SECCIÓN DE VIDEOJUEGOS (GAMING ZONE)
+   Mantiene la identidad única de desarrollo de videojuegos sin afectar
+   el tono profesional del resto del portafolio.
+   ========================================================================== */
+.gaming-theme, .seccion-juegos {
+  font-family: var(--font-body);
+}
+
+.gaming-theme h1, 
+.gaming-theme h2, 
+.gaming-theme h3, 
+.gaming-theme .gaming-title {
+  font-family: var(--font-gaming) !important;
+  letter-spacing: 0.05em;
+  color: var(--color-acento);
+}
+
+.gaming-card {
+  position: relative;
+  background: var(--color-card);
+  border: 1px solid var(--color-borde);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.gaming-card:hover {
+  border-color: var(--color-acento);
+  box-shadow: 0 0 20px var(--color-acento-glow);
+  transform: translateY(-4px);
+}
+
+.gaming-badge {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--color-acento);
+  color: var(--color-acento);
+  font-family: var(--font-gaming);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+}
+
+/* FOOTER PROFESIONAL */
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--color-card);
+  border-top: 1px solid var(--color-borde);
+  margin-top: 4rem;
+}
+
+footer p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
 
 /* IMÁGENES */
 img {
@@ -191,30 +375,16 @@ img {
   display: block;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--color-card);
-  color: var(--color-acento);
-  border-top: 1px solid var(--color-acento);
-}
-
-footer p {
-  margin: 10px;
-  font-size: 1rem;
-  color: var(--color-acento);
-}
-
 /* MEDIA QUERIES */
-@media (min-width: 1024px) {
-  .imagenes img {
-    flex: 1 1 calc(33.333% - 1rem);
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .app-container {
+    padding: 1.25rem 1rem;
+    gap: 2.5rem;
   }
 }

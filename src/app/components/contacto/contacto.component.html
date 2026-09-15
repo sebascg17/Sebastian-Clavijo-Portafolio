@@ -1,28 +1,83 @@
-<div class="app-container">
-  <div class="contacto">
-    <h1 class="titulo-seccion">Contacto</h1>
-    <p>¿Te interesa trabajar conmigo o ver más de lo que hago?</p>
-    <p>¡No dudes en contactarme!</p>
-
-    <div class="contacto-botones">
-      <a [href]="'mailto:' + contacto.contacto.correo" aria-label="Correo" class="btn-contacto">
-        <i class="fas fa-envelope"></i> Correo
-      </a>
-      <a [href]="contacto.contacto.github" target="_blank" rel="noopener" aria-label="GitHub" class="btn-contacto">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a [href]="contacto.contacto.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn-contacto">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a [href]="contacto.contacto.unity" target="_blank" rel="noopener" aria-label="Unity" class="btn-contacto">
-        <i class="devicon-unity-original"></i> Unity
-      </a>
-      <a [href]="contacto.contacto.itchio" target="_blank" rel="noopener" aria-label="Itch.io" class="btn-contacto">
-        <i class="fab fa-itch-io"></i> Itch.io
-      </a>
-      <a [href]="contacto.contacto.cv" download aria-label="CV" class="btn-contacto">
-        <i class="fas fa-file-alt"></i> CV
-      </a>
-    </div>
+<section class="contacto-section" *ngIf="contacto?.contacto">
+  <div class="section-header">
+    <span class="section-pill">Conversemos</span>
+    <h2 class="section-title">Canales de Contacto</h2>
+    <p class="section-subtitle">
+      Disponible para posiciones como Ingeniero de Software, Desarrollador Full Stack o Proyectos de Videojuegos.
+    </p>
   </div>
-</div>
+
+  <div class="contacto-grid">
+    <!-- Canal Principal: Correo Electrónico -->
+    <a [href]="'mailto:' + contacto.contacto.correo" class="contacto-card card-pro direct-card">
+      <div class="contacto-icon-box">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div class="contacto-info">
+        <span class="contacto-label">Correo Electrónico Directo</span>
+        <span class="contacto-val">{{ contacto.contacto.correo }}</span>
+      </div>
+      <i class="fas fa-arrow-up-right-from-square contacto-arrow"></i>
+    </a>
+
+    <!-- Canal Profesional: LinkedIn -->
+    <a [href]="contacto.contacto.linkedin" target="_blank" rel="noopener" class="contacto-card card-pro">
+      <div class="contacto-icon-box">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div class="contacto-info">
+        <span class="contacto-label">Perfil Profesional</span>
+        <span class="contacto-val">LinkedIn / juan-sebastian-clavijo</span>
+      </div>
+      <i class="fas fa-arrow-up-right-from-square contacto-arrow"></i>
+    </a>
+
+    <!-- Código Fuente: GitHub -->
+    <a [href]="contacto.contacto.github" target="_blank" rel="noopener" class="contacto-card card-pro">
+      <div class="contacto-icon-box">
+        <i class="fab fa-github"></i>
+      </div>
+      <div class="contacto-info">
+        <span class="contacto-label">Repositorios & Código</span>
+        <span class="contacto-val">GitHub / sebascg17</span>
+      </div>
+      <i class="fas fa-arrow-up-right-from-square contacto-arrow"></i>
+    </a>
+
+    <!-- Descarga Directa: CV -->
+    <a [href]="contacto.contacto.cv" download target="_blank" class="contacto-card card-pro cv-highlight-card">
+      <div class="contacto-icon-box cv-icon">
+        <i class="fas fa-file-arrow-down"></i>
+      </div>
+      <div class="contacto-info">
+        <span class="contacto-label">Documento PDF Actualizado</span>
+        <span class="contacto-val">Descargar Currículum Vitae</span>
+      </div>
+      <i class="fas fa-download contacto-arrow"></i>
+    </a>
+
+    <!-- Gaming Lab: Unity Play -->
+    <a [href]="contacto.contacto.unity" target="_blank" rel="noopener" class="contacto-card card-pro gaming-card">
+      <div class="contacto-icon-box">
+        <i class="devicon-unity-original"></i>
+      </div>
+      <div class="contacto-info">
+        <span class="contacto-label">Perfil de Desarrollador</span>
+        <span class="contacto-val">Unity Play Games</span>
+      </div>
+      <i class="fas fa-arrow-up-right-from-square contacto-arrow"></i>
+    </a>
+
+    <!-- Gaming Lab: Itch.io -->
+    <a [href]="contacto.contacto.itchio" target="_blank" rel="noopener" class="contacto-card card-pro gaming-card">
+      <div class="contacto-icon-box">
+        <i class="fab fa-itch-io"></i>
+      </div>
+      <div class="contacto-info">
+        <span class="contacto-label">Juegos Publicados</span>
+        <span class="contacto-val">Itch.io / sebascg17</span>
+      </div>
+      <i class="fas fa-arrow-up-right-from-square contacto-arrow"></i>
+    </a>
+  </div>
+</section>

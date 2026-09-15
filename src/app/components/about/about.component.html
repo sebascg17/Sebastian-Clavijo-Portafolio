@@ -1,56 +1,162 @@
-
 <section class="about-container" *ngIf="perfil">
-  <div class="about-content">
-    <div class="perfil">
-      <img [src]="perfil.foto" alt="Foto de {{ perfil.nombre }}" class="perfil-foto" />
-      <div class="perfil-info">
-        <h1 class="perfil-nombre">{{ perfil.nombre }}</h1>
-        <h2 class="perfil-titulo">{{ perfil.titulo }}</h2>
-        <p class="perfil-biografia">{{ perfil.biografia }}</p>
-      </div>
+  <!-- HERO EXECUTIVE SECTION -->
+  <div class="hero-section">
+    <div class="hero-badge-container">
+      <span class="status-badge">
+        <span class="status-pulse"></span>
+        Disponible para nuevas oportunidades laborales
+      </span>
     </div>
-    <!-- <span *ngFor="let hab of perfil.habilidades" class="habilidad-badge">
-      <i [class]="hab.icono" aria-hidden="true" style="margin-right:5px;"></i> {{ hab.nombre }}
-    </span> -->      
 
-    <app-habilidades></app-habilidades>
-    
-    <div class="experiencia">
-      <h2>Experiencia Laboral</h2>
-      <div *ngFor="let exp of perfil.experiencia" class="exp-item">
-        <h4>{{ exp.puesto }} - {{ exp.empresa }}</h4>
-        <small>{{ exp.fechaInicio }} - {{ exp.fechaFin }}</small>
+    <div class="hero-main-grid">
+      <div class="hero-avatar-wrapper">
+        <div class="avatar-card">
+          <img [src]="perfil.foto" alt="Foto de {{ perfil.nombre }}" class="perfil-foto" />
+        </div>
+      </div>
 
-        <ul>
-          <li *ngFor="let desc of exp.descripcion">{{ desc }}</li>
-        </ul>
+      <div class="hero-content">
+        <h1 class="hero-name">{{ perfil.nombre }}</h1>
+        <h2 class="hero-role">
+          <span class="role-highlight">Ingeniero de Software</span> & Desarrollador Full Stack
+        </h2>
+        
+        <p class="hero-bio">
+          {{ perfil.biografia }}
+        </p>
 
-        <div class="tecnologias">
-          <span *ngFor="let tech of exp.tecnologias" class="badge" style="display: inline-flex; align-items: center; gap: 6px;">
-            <i [class]="tech.icono" aria-hidden="true"></i> {{ tech.nombre }}
-          </span>
+        <!-- Botones de Acción Directa para Reclutadores -->
+        <div class="hero-actions">
+          <a [href]="perfil.contacto.cv" target="_blank" download class="btn-primary">
+            <i class="fas fa-file-arrow-down"></i> Descargar CV
+          </a>
+          <a routerLink="/portafolio" class="btn-secondary">
+            <i class="fas fa-layer-group"></i> Ver Proyectos
+          </a>
+          <a [href]="'mailto:' + perfil.contacto.correo" class="btn-secondary">
+            <i class="fas fa-envelope"></i> Contactar
+          </a>
+        </div>
+
+        <!-- Enlaces Sociales Rápidos -->
+        <div class="hero-socials">
+          <a [href]="perfil.contacto.linkedin" target="_blank" rel="noopener" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a [href]="perfil.contacto.github" target="_blank" rel="noopener" class="social-icon" title="GitHub" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a [href]="perfil.contacto.unity" target="_blank" rel="noopener" class="social-icon" title="Perfil Unity" aria-label="Unity">
+            <i class="devicon-unity-original"></i>
+          </a>
+          <a [href]="perfil.contacto.itchio" target="_blank" rel="noopener" class="social-icon" title="Perfil Itch.io" aria-label="Itch.io">
+            <i class="fab fa-itch-io"></i>
+          </a>
         </div>
       </div>
     </div>
 
+    <!-- Cintas de Métricas Clave -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">3+</div>
+        <div class="metric-label">Años de Desarrollo & Docencia</div>
+      </div>
+      <div class="metric-card highlight-metric">
+        <div class="metric-number">MercAbundy</div>
+        <div class="metric-label">Ecosistema en Producción (.NET 9 + Angular 19)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">Full Stack & Móvil</div>
+        <div class="metric-label">Angular, .NET, PostgreSQL, Docker, Android</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">Game Engineering</div>
+        <div class="metric-label">Unity, C#, Game Jams & Gameplay Systems</div>
+      </div>
+    </div>
+  </div>
 
-    <div class="educacion">
-      <h2>Educación</h2>
+  <hr class="separador-moderno">
 
-      <div class="educacion-grid">
-        <div *ngFor="let edu of perfil.educacion" class="edu-item">
-          <h4>{{ edu.institucion }}</h4>
-          <small>{{ edu.ciudad }} • {{ edu.fechaInicio }} - {{ edu.fechaFin }}</small>
-          <p>{{ edu.descripcion }}</p>
+  <!-- HABILIDADES TECNOLÓGICAS -->
+  <app-habilidades></app-habilidades>
+  
+  <hr class="separador-moderno">
 
-          <div class="tecnologias" *ngIf="edu.tecnologias?.length">
-            <span *ngFor="let tech of edu.tecnologias" class="badge">
-              <i *ngIf="tech.icono" [class]="tech.icono" aria-hidden="true"></i> {{ tech.nombre }}
+  <!-- EXPERIENCIA LABORAL (TIMELINE MODERNO) -->
+  <section class="seccion-experiencia">
+    <div class="section-header">
+      <span class="section-pill">Trayectoria</span>
+      <h2 class="section-title">Experiencia Laboral</h2>
+      <p class="section-subtitle">Roles profesionales, responsabilidades y valor técnico entregado</p>
+    </div>
+
+    <div class="timeline">
+      <div *ngFor="let exp of perfil.experiencia; let last = last" class="timeline-item" [class.timeline-last]="last">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-content card-pro">
+          <div class="timeline-header">
+            <div>
+              <h3 class="exp-role">{{ exp.puesto }}</h3>
+              <h4 class="exp-company">
+                <i class="fas fa-building"></i> {{ exp.empresa }}
+              </h4>
+            </div>
+            <span class="date-badge">
+              <i class="far fa-calendar-alt"></i> {{ exp.fechaInicio }} — {{ exp.fechaFin || 'Actualidad' }}
+            </span>
+          </div>
+
+          <ul class="exp-bullets">
+            <li *ngFor="let desc of exp.descripcion">
+              {{ desc }}
+            </li>
+          </ul>
+
+          <div class="tecnologias">
+            <span *ngFor="let tech of exp.tecnologias" class="badge">
+              <i [class]="tech.icono"></i> {{ tech.nombre }}
             </span>
           </div>
         </div>
       </div>
     </div>
-  
-  </div>
+  </section>
+
+  <hr class="separador-moderno">
+
+  <!-- EDUCACIÓN Y FORMACIÓN -->
+  <section class="seccion-educacion">
+    <div class="section-header">
+      <span class="section-pill">Formación Continua</span>
+      <h2 class="section-title">Educación & Certificaciones</h2>
+      <p class="section-subtitle">Títulos universitarios, certificaciones técnicas y especializaciones</p>
+    </div>
+
+    <div class="educacion-grid">
+      <div *ngFor="let edu of perfil.educacion" class="edu-card card-pro">
+        <div class="edu-header">
+          <div class="edu-icon-box">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div>
+            <h3 class="edu-institution">{{ edu.institucion }}</h3>
+            <span class="edu-meta">{{ edu.ciudad }} • {{ edu.fechaInicio }} - {{ edu.fechaFin || 'Actualidad' }}</span>
+          </div>
+        </div>
+
+        <p class="edu-desc">{{ edu.descripcion }}</p>
+
+        <div class="tecnologias" *ngIf="edu.tecnologias?.length">
+          <span *ngFor="let tech of edu.tecnologias" class="badge">
+            <i *ngIf="tech.icono" [class]="tech.icono"></i> {{ tech.nombre }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>

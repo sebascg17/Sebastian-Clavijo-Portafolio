@@ -9,10 +9,12 @@
   right: 0;
   height: 70px;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-borde);
+  background-color: #0b1120 !important; /* Siempre oscuro, elegante y limpio */
+  background: rgba(11, 17, 32, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
@@ -20,8 +22,8 @@
 }
 
 body.modo-oscuro .menu-bar {
-  background-color: rgba(9, 13, 22, 0.85);
-  border-bottom: 1px solid var(--color-borde);
+  background: rgba(9, 13, 22, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .logo-link {
@@ -53,8 +55,7 @@ body.modo-oscuro .menu-bar {
 
 .nav-link {
   text-decoration: none;
-  color: var(--color-text);
-  opacity: 0.9;
+  color: #e2e8f0 !important;
   font-size: 0.95rem;
   font-weight: 600;
   padding: 0.5rem 0.85rem;
@@ -67,14 +68,13 @@ body.modo-oscuro .menu-bar {
 }
 
 .nav-link:hover {
-  opacity: 1;
-  color: var(--color-acento);
-  background-color: var(--color-acento-subtle);
+  color: #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.12) !important;
 }
 
 .active-link {
-  color: var(--color-acento) !important;
-  background-color: var(--color-acento-subtle);
+  color: #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.15) !important;
   font-weight: 700;
 }
 

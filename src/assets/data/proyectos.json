@@ -473,9 +473,10 @@
     "categoria": "videojuego",
     "titulo": "Foxy Platformer 2D",
     "descripcion": "Foxy Platformer 2D es un dinámico juego de plataformas de acción y aventuras desarrollado en Unity 2D y C#, creado como proyecto integral de desarrollo y pedagogía técnica en Kodland.\n\nEl jugador controla al ágil personaje Foxy a través de niveles vibrantes con físicas clásicas de plataformas: saltos precisos, doble salto condicional, plataformas móviles en suspensión, acertijos de puertas con llaves (Door Quest), recolección de gemas/cerezas e interacción con NPCs. La arquitectura implementa un sistema desacoplado de máquinas de estado para el jugador, efectos parallax multicapa para los fondos y una gestión de juego optimizada para ordenadores y navegadores WebGL.",
-    "imagenes": [
-      "assets/juegos/FoxyPlatform/foxy-background.png",
-      "assets/juegos/FoxyPlatform/foxy-middle.png"
+    "imagenes": [    
+      "assets/juegos/FoxyPlatform/foxy-start.png",
+      "assets/juegos/FoxyPlatform/foxy-checkpoint.png",
+      "assets/juegos/FoxyPlatform/foxy-door.png"
     ],
     "tecnologias": [
       {
@@ -531,6 +532,7 @@
     ],
     "problema": "Enseñar programación de videojuegos en 2D requiere un proyecto práctico que no se limite a mover un objeto, sino que enseñe la interacción real de físicas, animaciones coordinadas, arquitectura de scripts y diseño de niveles entretenido.",
     "solucion": "Foxy Platformer 2D integra en un solo proyecto modular todas las mecánicas esenciales de los clásicos juegos de plataformas, permitiendo a los aprendices comprender desde el cálculo de fuerzas hasta la arquitectura de software en Unity.",
+    "enlaceDescarga": "https://sebascg17.itch.io/foxy-platform",
     "enlaceCodigo": "https://github.com/sebascg17/Foxy-Platform",
     "destacado": true
   },

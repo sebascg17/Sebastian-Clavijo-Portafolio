@@ -16,19 +16,30 @@ export class AppComponent {
   modoOscuro: boolean = true;
 
   constructor() {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const guardado = localStorage.getItem('modo-oscuro');
+      if (guardado !== null) {
+        this.modoOscuro = guardado === 'true';
+      }
+    }
     this.actualizarClaseBody();
   }
 
   toggleModoOscuro(): void {
     this.modoOscuro = !this.modoOscuro;
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('modo-oscuro', String(this.modoOscuro));
+    }
     this.actualizarClaseBody();
   }
 
   actualizarClaseBody(): void {
-    if (this.modoOscuro) {
-      document.body.classList.add('modo-oscuro');
-    } else {
-      document.body.classList.remove('modo-oscuro');
+    if (typeof document !== 'undefined') {
+      if (this.modoOscuro) {
+        document.body.classList.add('modo-oscuro');
+      } else {
+        document.body.classList.remove('modo-oscuro');
+      }
     }
   }
 }

@@ -544,7 +544,8 @@
     "imagenes": [
       "assets/juegos/EnRuta/Enruta.gif",
       "https://img.itch.zone/aW1nLzI0NTgzMTI1LmpwZw==/original/6ASxvV.jpg",
-      "assets/juegos/EnRuta/enruta-game.png"
+      "assets/juegos/EnRuta/enruta-game.png",
+      "assets/juegos/EnRuta/enruta-gameover.png"
     ],
     "tecnologias": [
       {

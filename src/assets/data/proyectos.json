@@ -543,7 +543,8 @@
     "descripcion": "EnRuta es un dinámico Endless Runner 3D desarrollado en Unity 6 y C#, concebido como una propuesta arcade de concientización y educación ambiental ambientada en las calles y arquitectura emblemática de Medellín, Colombia.\n\nEn el rol de un recolector urbano, el jugador esquiva obstáculos viales y recolecta residuos a alta velocidad a lo largo de un sistema de carriles procedural. El juego integra mecánicas de salto, deslizamiento y power-ups magnéticos, culminando con una fase de clasificación de residuos según protocolos reales de reciclaje y sostenibilidad.",
     "imagenes": [
       "assets/juegos/EnRuta/Enruta.gif",
-      "https://img.itch.zone/aW1nLzI0NTgzMTI1LmpwZw==/original/6ASxvV.jpg"
+      "https://img.itch.zone/aW1nLzI0NTgzMTI1LmpwZw==/original/6ASxvV.jpg",
+      "assets/juegos/EnRuta/enruta-game.png"
     ],
     "tecnologias": [
       {

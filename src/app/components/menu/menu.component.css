@@ -9,12 +9,12 @@
   right: 0;
   height: 70px;
   z-index: 1000;
-  background-color: #0b1120 !important; /* Siempre oscuro, elegante y limpio */
-  background: rgba(11, 17, 32, 0.92) !important;
+  background-color: var(--color-surface) !important;
+  background: var(--color-surface-translucent, rgba(255, 255, 255, 0.92)) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--color-borde) !important;
+  box-shadow: var(--shadow-sm);
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
@@ -22,8 +22,10 @@
 }
 
 body.modo-oscuro .menu-bar {
-  background: rgba(9, 13, 22, 0.95) !important;
+  background-color: #0b1120 !important;
+  background: rgba(11, 17, 32, 0.95) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .logo-link {
@@ -55,7 +57,7 @@ body.modo-oscuro .menu-bar {
 
 .nav-link {
   text-decoration: none;
-  color: #e2e8f0 !important;
+  color: var(--color-text) !important;
   font-size: 0.95rem;
   font-weight: 600;
   padding: 0.5rem 0.85rem;
@@ -68,13 +70,13 @@ body.modo-oscuro .menu-bar {
 }
 
 .nav-link:hover {
-  color: #10b981 !important;
-  background-color: rgba(16, 185, 129, 0.12) !important;
+  color: var(--color-acento) !important;
+  background-color: var(--color-acento-subtle) !important;
 }
 
 .active-link {
-  color: #10b981 !important;
-  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: var(--color-acento) !important;
+  background-color: var(--color-acento-subtle) !important;
   font-weight: 700;
 }
 
@@ -145,6 +147,7 @@ body.modo-oscuro .menu-bar {
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1rem;
+  z-index: 1002 !important;
 }
 
 .sidenav-header {
@@ -266,7 +269,21 @@ body.modo-oscuro .menu-bar {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
-  z-index: 999;
+  z-index: 1001;
+}
+
+.sidenav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.custom-sidenav, .sidenav-backdrop {
+  pointer-events: auto;
 }
 
 /* RESPONSIVE */

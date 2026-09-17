@@ -21,6 +21,51 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <style>
+      body {
+        margin: 0;
+        background-color: #0b1120;
+      }
+      .startup-loader-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #0b1120;
+        color: #10b981;
+        font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+        z-index: 99999;
+      }
+      .startup-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(16, 185, 129, 0.15);
+        border-top-color: #10b981;
+        border-radius: 50%;
+        animation: startup-spin 1s ease-in-out infinite;
+        margin-bottom: 25px;
+      }
+      .startup-text {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        animation: startup-pulse 1.5s infinite;
+      }
+      @keyframes startup-spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes startup-pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+    </style>
+    <div class="startup-loader-container">
+      <div class="startup-spinner"></div>
+      <div class="startup-text">CARGANDO PORTAFOLIO...</div>
+    </div>
+  </app-root>
 </body>
 </html>

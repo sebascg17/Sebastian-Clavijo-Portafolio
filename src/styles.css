@@ -225,6 +225,22 @@ p {
   color: var(--color-acento);
 }
 
+/* CARD PROFESIONAL GENÉRICO */
+.card-pro {
+  background: var(--color-card);
+  border: 1px solid var(--color-borde);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.card-pro:hover {
+  border-color: var(--color-borde-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
 /* BADGES MODERNOS (TECH PILLS) */
 .tecnologias {
   display: flex;

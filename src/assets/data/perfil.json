@@ -2,7 +2,7 @@
   "nombre": "Juan Sebastián Clavijo Giraldo",
   "titulo": "Game Developer | FullStack Developer",
   "biografia": "Ingeniero de Software y Desarrollador FullStack con amplia experiencia en la creación de aplicaciones web escalables y videojuegos interactivos. Especializado en el ecosistema Angular y .NET Core, he desarrollado proyectos complejos como MercAbundy, implementando sistemas de gestión multi-rol, autenticación segura y despliegue en la nube. Mi enfoque combina la precisión técnica de la ingeniería con la creatividad del desarrollo de videojuegos en Unity, entregando soluciones robustas, optimizadas y centradas en el usuario.",
-  "foto": "assets/perfil/Juan Sebastian Clavijo.png",
+  "foto": "assets/perfil/Juan Sebastian Clavijo.jpg",
   "habilidades": [
     { "nombre": "Unity", "icono": "devicon-unity-original" },
     { "nombre": "C#", "icono": "devicon-csharp-plain" },

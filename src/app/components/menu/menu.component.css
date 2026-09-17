@@ -9,23 +9,16 @@
   right: 0;
   height: 70px;
   z-index: 1000;
-  background-color: var(--color-surface) !important;
-  background: var(--color-surface-translucent, rgba(255, 255, 255, 0.92)) !important;
+  background-color: transparent !important;
+  background: var(--color-nav-bg) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid var(--color-borde) !important;
+  border-bottom: 1px solid var(--color-nav-border) !important;
   box-shadow: var(--shadow-sm);
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-}
-
-body.modo-oscuro .menu-bar {
-  background-color: #0b1120 !important;
-  background: rgba(11, 17, 32, 0.95) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .logo-link {

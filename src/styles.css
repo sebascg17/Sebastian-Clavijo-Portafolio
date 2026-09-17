@@ -17,8 +17,9 @@
   --color-bg: #f8fafc;
   --color-surface: #ffffff;
   --color-card: #ffffff;
-  --color-card-hover: #f1f5f9;
   --color-card-dark: #f1f5f9;
+  --color-nav-bg: rgba(255, 255, 255, 0.92);
+  --color-nav-border: #e2e8f0;
 
   --color-text: #0f172a;
   --color-text-secondary: #334155;
@@ -49,8 +50,9 @@ body.modo-oscuro {
   --color-bg: #090d16;
   --color-surface: #0f172a;
   --color-card: #111a2e;
-  --color-card-hover: #16223b;
   --color-card-dark: #0b1120;
+  --color-nav-bg: rgba(11, 17, 32, 0.95);
+  --color-nav-border: rgba(255, 255, 255, 0.08);
 
   --color-text: #f8fafc;
   --color-text-secondary: #cbd5e1;

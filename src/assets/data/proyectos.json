@@ -25,7 +25,9 @@
       }
     ],
     "enlaceCodigo": "https://github.com/sebascg17/mokepon",
-    "enlaceDescarga": "assets/descargas/Mokepon.zip"
+    "enlaceDescarga": "assets/descargas/Mokepon.zip",
+    "fecha": "Abr 2025 - Jun 2025",
+    "vigente": false
   },
   {
     "id": 2,
@@ -51,7 +53,9 @@
       }
     ],
     "enlaceCodigo": "https://github.com/sebascg17/curso-node-js",
-    "enlaceDemo": "https://rest-api-deploy-fknk.onrender.com/movies"
+    "enlaceDemo": "https://rest-api-deploy-fknk.onrender.com/movies",
+    "fecha": "Feb 2025 - Mar 2025",
+    "vigente": false
   },
   {
     "id": 3,
@@ -82,7 +86,9 @@
       }
     ],
     "enlaceCodigo": "https://github.com/sebascg17/peliculas-app",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Abr 2025 - Jun 2025",
+    "vigente": false
   },
   {
     "id": 4,
@@ -104,7 +110,9 @@
     ],
     "enlaceCodigo": "https://github.com/sebascg17/Dodge-the-stampede-Game",
     "enlaceDescarga": "https://sebascg17.itch.io/juego-de-la-estampida",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Mayo 2025",
+    "vigente": false
   },
   {
     "id": 5,
@@ -126,7 +134,9 @@
     ],
     "enlaceCodigo": "https://github.com/sebascg17/FlyingDrivingGame",
     "enlaceDescarga": "https://play.unity.com/es/games/d18b137d-d095-4067-b313-6b2052499940/flying-driving-game",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Mayo 2025",
+    "vigente": false
   },
   {
     "id": 6,
@@ -151,7 +161,9 @@
     ],
     "enlaceCodigo": "https://github.com/sebascg17/Whack-The-Food/blob/main/README.md",
     "enlaceDescarga": "https://sebascg17.itch.io/whack-a-food",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Junio 2025",
+    "vigente": false
   },
   {
     "id": 7,
@@ -201,7 +213,9 @@
     "solucion": "Se estructuró el proyecto por módulos reutilizables, se implementó lógica basada en eventos y se estableció comunicación constante entre miembros para alinear avances técnicos y de diseño.",
     "enlaceCodigo": "https://github.com/judperezre/IEs-Revenge",
     "enlaceDescarga": "https://zinnahmoon.itch.io/ies-revenge",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Jun 2025 - Jul 2025",
+    "vigente": false
   },
   {
     "id": 8,
@@ -257,7 +271,9 @@
     "solucion": "Se reestructuraron componentes clave como el PlayerController, se crearon funciones desacopladas y se implementaron validaciones lógicas basadas en eventos y estados",
     "enlaceCodigo": "https://github.com/groverush/Abuelo-Panelo",
     "enlaceDescarga": "https://zinnahmoon.itch.io/abuelo-panelo",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Jun 2025 - Oct 2025",
+    "vigente": false
   },
   {
     "id": 9,
@@ -306,7 +322,9 @@
     "solucion": "Se estructuraron controladores independientes para el topo y el martillo, conectados a sus respectivos managers, y se desarrolló lógica para garantizar que los clones se posicionaran correctamente sin solaparse con el jugador original.",
     "enlaceCodigo": "https://github.com/groverush/topoqueado/tree/main",
     "enlaceDescarga": "https://majim.itch.io/topoqueado-laboratorio-mortal",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Julio 2025",
+    "vigente": false
   },
   {
     "id": 10,
@@ -401,7 +419,9 @@
     "solucion": "MercAbundy unifica a toda la comunidad comercial en una solución moderna y accesible: brinda a los clientes una tienda virtual ágil con entregas a domicilio, a los comerciantes un software integral de punto de venta e inventario, y al negocio una arquitectura tecnológica escalable y robusta.",
     "enlaceDemo": "https://mercabundy.vercel.app/",
     "enlaceDescarga": "https://mercabundy.vercel.app/downloads/mercabundy.apk",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Nov 2025 - En la actualidad",
+    "vigente": true
   },
   {
     "id": 11,
@@ -466,14 +486,16 @@
     "solucion": "Survival Shooter 3D materializa todas las buenas prácticas de la industria en un videojuego completo y rejugable, sirviendo como estándar de arquitectura limpia y alto rendimiento en Unity.",
     "enlaceDescarga": "https://sebascg17.itch.io/survival-shooter-multiplayer",
     "enlaceCodigo": "https://github.com/sebascg17/Survival-Shooter#",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Mayo 2026 - Jul 2026",
+    "vigente": false
   },
   {
     "id": 12,
     "categoria": "videojuego",
     "titulo": "Foxy Platformer 2D",
     "descripcion": "Foxy Platformer 2D es un dinámico juego de plataformas de acción y aventuras desarrollado en Unity 2D y C#, creado como proyecto integral de desarrollo y pedagogía técnica en Kodland.\n\nEl jugador controla al ágil personaje Foxy a través de niveles vibrantes con físicas clásicas de plataformas: saltos precisos, doble salto condicional, plataformas móviles en suspensión, acertijos de puertas con llaves (Door Quest), recolección de gemas/cerezas e interacción con NPCs. La arquitectura implementa un sistema desacoplado de máquinas de estado para el jugador, efectos parallax multicapa para los fondos y una gestión de juego optimizada para ordenadores y navegadores WebGL.",
-    "imagenes": [    
+    "imagenes": [
       "assets/juegos/FoxyPlatform/foxy-start.png",
       "assets/juegos/FoxyPlatform/foxy-checkpoint.png",
       "assets/juegos/FoxyPlatform/foxy-door.png"
@@ -534,7 +556,9 @@
     "solucion": "Foxy Platformer 2D integra en un solo proyecto modular todas las mecánicas esenciales de los clásicos juegos de plataformas, permitiendo a los aprendices comprender desde el cálculo de fuerzas hasta la arquitectura de software en Unity.",
     "enlaceDescarga": "https://sebascg17.itch.io/foxy-platform",
     "enlaceCodigo": "https://github.com/sebascg17/Foxy-Platform",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Febrero 2026",
+    "vigente": false
   },
   {
     "id": 13,
@@ -612,7 +636,9 @@
     "solucion": "EnRuta transforma la separación de basura en una mecánica de juego emocionante y competitiva: combina la adrenalina de un runner urbano 3D con el aprendizaje práctico de clasificación de residuos, educando a través del entretenimiento interactivo.",
     "enlaceDescarga": "https://wilsongarcia.itch.io/enruta",
     "enlaceCodigo": "https://github.com/garciaw602/EnRuta-EndlessRunner/tree/main",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Oct 2025 - Mar 2026",
+    "vigente": false
   },
   {
     "id": 14,
@@ -686,6 +712,8 @@
     "problema": "La falta de un sistema digitalizado para el control de insumos y ventas en puntos de cafetería generaba descuadres de inventario, errores en el cobro fraccionado por peso y pérdida de trazabilidad de los ingresos diarios.",
     "solucion": "Se diseñó e implementó un sistema web centralizado que calcula costos unitarios automáticamente, valida el stock en cada transacción y registra de forma permanente las ventas en una base de datos relacional MySQL.",
     "enlaceCodigo": "https://github.com/sebascg17/prueba_php",
-    "destacado": true
+    "destacado": true,
+    "fecha": "Noviembre 2022",
+    "vigente": false
   }
 ]

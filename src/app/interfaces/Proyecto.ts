@@ -3,6 +3,8 @@ export interface Proyecto {
   categoria: 'videojuego' | 'web';
   titulo: string;
   descripcion: string;
+  fecha?: string;
+  vigente?: boolean;
   tecnologias: {
     nombre: string;
     icono: string;

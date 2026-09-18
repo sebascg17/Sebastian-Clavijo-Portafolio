@@ -20,10 +20,18 @@
     <div *ngFor="let web of webs" class="card-pro project-card">
       
       <div class="project-card-top">
-        <span class="project-tag tag-web">
-          <i class="fas fa-code"></i> Software & Web
+        <div class="card-top-left">
+          <span class="project-tag tag-web">
+            <i class="fas fa-code"></i> Software & Web
+          </span>
+          <span *ngIf="web.id === 10" class="badge-featured">Flagship</span>
+          <span *ngIf="web.vigente" class="badge-vigente">
+            <i class="fas fa-bolt"></i> En la actualidad
+          </span>
+        </div>
+        <span *ngIf="web.fecha" class="project-date">
+          <i class="far fa-calendar-alt"></i> {{ web.fecha }}
         </span>
-        <span *ngIf="web.id === 10" class="badge-featured">Flagship</span>
       </div>
 
       <h2 class="project-title">{{ web.titulo }}</h2>      

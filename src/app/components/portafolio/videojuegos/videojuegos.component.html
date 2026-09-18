@@ -22,10 +22,18 @@
     <div *ngFor="let juego of juegos" class="gaming-card card-pro project-card">
       
       <div class="project-card-top">
-        <span class="gaming-badge">
-          <i class="fas fa-gamepad"></i> Juego Unity
+        <div class="card-top-left">
+          <span class="gaming-badge">
+            <i class="fas fa-gamepad"></i> Juego Unity
+          </span>
+          <span *ngIf="juego.destacado" class="badge-featured">Destacado</span>
+          <span *ngIf="juego.vigente" class="badge-vigente">
+            <i class="fas fa-bolt"></i> En la actualidad
+          </span>
+        </div>
+        <span *ngIf="juego.fecha" class="project-date">
+          <i class="far fa-calendar-alt"></i> {{ juego.fecha }}
         </span>
-        <span *ngIf="juego.destacado" class="badge-featured">Destacado</span>
       </div>
 
       <h2 class="gaming-title">{{ juego.titulo }}</h2>      

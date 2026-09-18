@@ -12,6 +12,7 @@
         {{ proyecto.categoria === 'videojuego' ? 'Videojuego' : 'Desarrollo de Software & Web' }}
       </span>
       <span *ngIf="proyecto.id === 10" class="badge-featured">Proyecto en Producción</span>
+      <span *ngIf="proyecto.vigente" class="badge-vigente"><i class="fas fa-bolt"></i> En la actualidad</span>
     </div>
   </div>
 
@@ -77,8 +78,8 @@
         </ul>
       </div>
 
-      <!-- Rol y Lugar -->
-      <div class="bloque card-pro meta-bloque" *ngIf="proyecto.rol || proyecto.lugar">
+      <!-- Rol, Lugar y Periodo -->
+      <div class="bloque card-pro meta-bloque" *ngIf="proyecto.rol || proyecto.lugar || proyecto.fecha">
         <div *ngIf="proyecto.rol" class="meta-item">
           <i class="fas fa-user-tie"></i>
           <div>
@@ -91,6 +92,18 @@
           <div>
             <span class="meta-label">Entorno / Organización</span>
             <span class="meta-val">{{ proyecto.lugar }}</span>
+          </div>
+        </div>
+        <div *ngIf="proyecto.fecha" class="meta-item">
+          <i class="far fa-calendar-alt"></i>
+          <div>
+            <span class="meta-label">Periodo / Fecha</span>
+            <span class="meta-val">
+              {{ proyecto.fecha }}
+              <span *ngIf="proyecto.vigente" class="badge-vigente ms-2">
+                <i class="fas fa-bolt"></i> En la actualidad
+              </span>
+            </span>
           </div>
         </div>
       </div>

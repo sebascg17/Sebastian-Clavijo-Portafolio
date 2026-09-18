@@ -613,5 +613,79 @@
     "enlaceDescarga": "https://wilsongarcia.itch.io/enruta",
     "enlaceCodigo": "https://github.com/garciaw602/EnRuta-EndlessRunner/tree/main",
     "destacado": true
+  },
+  {
+    "id": 14,
+    "categoria": "web",
+    "titulo": "Sistema de Control de Inventario & Ventas",
+    "descripcion": "Sistema web transaccional desarrollado para la administración integral de inventarios, cálculo dinámico de costos y procesamiento de ventas en tiempo real para el sector de cafetería y alimentos.\n\nLa aplicación automatiza el registro de productos categorizados, calcula los precios unitarios de forma proporcional al peso por kilogramo, mantiene el control estricto de existencias (stock) y proporciona un punto de venta (POS) interactivo que descuenta inventario y registra transacciones en una base de datos MySQL desplegada en servidor cloud.",
+    "imagenes": [
+      "assets/web/InventarioPHP/inventario-portada.jpg"
+    ],
+    "tecnologias": [
+      {
+        "nombre": "PHP",
+        "icono": "devicon-php-plain"
+      },
+      {
+        "nombre": "MySQL",
+        "icono": "devicon-mysql-plain"
+      },
+      {
+        "nombre": "Bootstrap 5",
+        "icono": "devicon-bootstrap-plain"
+      },
+      {
+        "nombre": "HTML5 / CSS3",
+        "icono": "devicon-html5-plain"
+      },
+      {
+        "nombre": "JavaScript",
+        "icono": "devicon-javascript-plain"
+      },
+      {
+        "nombre": "Apache",
+        "icono": "fas fa-server"
+      },
+      {
+        "nombre": "000webhost / Cloud",
+        "icono": "fas fa-cloud-upload-alt"
+      },
+      {
+        "nombre": "Git & GitHub",
+        "icono": "fab fa-github"
+      }
+    ],
+    "rol": "Desarrollador de Software",
+    "lugar": "Sociedad de San Vicente de Paúl de Medellín",
+    "arquitectura": [
+      "Arquitectura Web Cliente-Servidor: Aplicación web desarrollada con PHP nativo modular y Bootstrap 5, gestionando sesiones de usuario y alertas interactivas de retroalimentación.",
+      "Persistencia Relacional MySQL: Modelo de datos normalizado con tablas 'producto', 'categorias' y 'ventas' vinculadas mediante claves foráneas y consultas optimizadas con INNER JOIN.",
+      "Control Transaccional de Stock: Validación y descuento de existencias en el servidor para evitar ventas por encima de la disponibilidad real de inventario.",
+      "Cálculo Dinámico de Costos: Algoritmo para calcular el precio unitario por peso dividiendo el valor total del lote entre el stock disponible en bodega.",
+      "Despliegue en Producción Cloud: Configuración y migración de base de datos MySQL y código fuente a servidor web remoto (000webhost / LAMP) con phpMyAdmin y versionado en GitHub."
+    ],
+    "avances": [
+      "Panel de Inventario Central: Tabla interactiva con detalle de producto, referencia, peso en kg, categoría, stock en tiempo real y fecha de creación.",
+      "Módulo de Punto de Venta (POS): Catálogo visual en tarjetas con cantidad disponible y procesamiento de venta directa.",
+      "Histórico de Transacciones: Reporte acumulativo de productos vendidos con cálculo de ingresos totales.",
+      "Formularios Validados: Registro y edición de productos con dropdown dinámico de categorías conectado a la base de datos.",
+      "Despliegue Web Funcional: Publicación exitosa y operativa en servidor web público en la nube."
+    ],
+    "retos": [
+      "Garantizar la integridad referencial y evitar ventas inconsistentes cuando el stock del producto llega a cero unidades.",
+      "Configurar la conectividad entre los scripts PHP y la base de datos MySQL en el entorno de hosting remoto frente al entorno local de XAMPP.",
+      "Diseñar una interfaz responsiva y accesible que facilitara la toma rápida de pedidos y la consulta de existencias."
+    ],
+    "logros": [
+      "Sistema de inventario y ventas 100% funcional y probado en servidor de producción en la nube (000webhost).",
+      "Automatización completa del flujo de inventario y facturación, eliminando el control manual en papel.",
+      "Código fuente versionado y publicado en repositorio de GitHub (sebascg17/prueba_php).",
+      "Demostración sólida de dominio del stack LAMP tradicional (Linux/Windows, Apache, MySQL, PHP)."
+    ],
+    "problema": "La falta de un sistema digitalizado para el control de insumos y ventas en puntos de cafetería generaba descuadres de inventario, errores en el cobro fraccionado por peso y pérdida de trazabilidad de los ingresos diarios.",
+    "solucion": "Se diseñó e implementó un sistema web centralizado que calcula costos unitarios automáticamente, valida el stock en cada transacción y registra de forma permanente las ventas en una base de datos relacional MySQL.",
+    "enlaceCodigo": "https://github.com/sebascg17/prueba_php",
+    "destacado": true
   }
 ]

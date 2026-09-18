@@ -35,7 +35,11 @@ export class PortafolioComponent extends BaseProyectoComponent implements OnInit
     this.http.get<Proyecto[]>('assets/data/proyectos.json').subscribe(proyectos => {
       this.destacados = proyectos
         .filter(p => p.destacado)
-        .sort((a, b) => b.id - a.id)
+        .sort((a, b) => {
+          if (a.id === 10) return -1;
+          if (b.id === 10) return 1;
+          return b.id - a.id;
+        })
         .map(p => {
           const videoUrl = p.videoUrl ? this.convertirVideoEmbed(p.videoUrl) : undefined;
           return {

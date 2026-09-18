@@ -28,7 +28,11 @@ export class DevComponent extends BaseProyectoComponent implements OnInit {
       .subscribe(data => {
         const filtrados  = data.filter(p => p.categoria === 'web');
         this.webs = filtrados
-          .sort((a, b) => b.id - a.id) // Ordenar de mayor a menor ID
+          .sort((a, b) => {
+            if (a.id === 10) return -1;
+            if (b.id === 10) return 1;
+            return b.id - a.id;
+          })
           .map(web => {
             let videoUrl = web.videoUrl;
             if (videoUrl) {
